@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a0563b7d-b482-4670-b46c-23dab53e427f" name="Default Changelist" comment="" />
+    <list default="true" id="a0563b7d-b482-4670-b46c-23dab53e427f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/ToDoListManager.app.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/ToDoListManager.app.test.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Project-0-Repository.wiki" beforeDir="false" afterPath="$PROJECT_DIR$/Project-0-Repository.wiki" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,6 +137,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
