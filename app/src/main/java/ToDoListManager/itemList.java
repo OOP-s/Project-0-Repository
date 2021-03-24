@@ -1,4 +1,5 @@
 package ToDoListManager;
+import java.util.Collections;
 
 public abstract class itemList {
 
@@ -14,7 +15,9 @@ public abstract class itemList {
     public String getDescription() { return description; }
     public void setTitle(String newTitle) { title = newTitle; }
     public void setDescription(String newDescription) { description = newDescription; }
-    public void sortListbyDueDate() {  }
+    public void sortListbyDueDate() {
+        Collections.sort(listOfProjects);
+    }
     public void sortListbyPriority() {  }
     public void sortListbyLabels(String label) {  }
     public void showCompletedTasks() {  }
