@@ -1,7 +1,7 @@
 package ToDoListManager;
 
 
-public abstract class itemList {
+public class itemList {
 
     private String title;
     private String description;
