@@ -8,12 +8,20 @@
 
 plugins {
     // Apply the application plugin to add support for building a CLI application in Java.
+    id "org.openjfx.javafxplugin" version "0.0.9"
+    id 'java'
     id 'application'
+}
+
+javafx{
+    version = "11"
+    modules = ['javafx.controls']
 }
 
 repositories {
     // Use JCenter for resolving dependencies.
     jcenter()
+    mavenCentral()
 }
 
 dependencies {
