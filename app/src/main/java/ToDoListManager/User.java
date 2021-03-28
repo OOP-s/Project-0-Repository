@@ -9,28 +9,24 @@ public class User extends UserTemplate {
 
     // four different constructors since a biography and profile image are optional for the user
     public User(String email, String password, String firstName, String lastName){
-        this.email = email;
-        this.password = password;
+        super(email, password);
         this.firstName = firstName;
         this.lastName = lastName;
     }
     public User(String email, String password, String firstName, String lastName, String biography){
-        this.email = email;
-        this.password = password;
+        super(email, password);
         this.firstName = firstName;
         this.lastName = lastName;
         this.biography = biography;
     }
     public User(String email, String password, String firstName, String lastName, PNG profileImage){
-        this.email = email;
-        this.password = password;
+        super(email, password);
         this.firstName = firstName;
         this.lastName = lastName;
         this.profileImage = profileImage;
     }
     public User(String email, String password, String firstName, String lastName, String biography, PNG profileImage){
-        this.email = email;
-        this.password = password;
+        super(email, password);
         this.firstName = firstName;
         this.lastName = lastName;
         this. biography = biography;
