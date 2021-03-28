@@ -10,6 +10,6 @@ public class project extends itemList {
        return new project(title,description);
     }
 
-    public void selectProjectForDisplay() {  }
+
 
 }
