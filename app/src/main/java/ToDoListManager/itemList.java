@@ -19,7 +19,7 @@ public abstract class itemList {
     public void setDescription(String newDescription) { description = newDescription; }
 // This add item method adds the inputted item into the linked list at the end
     public void addItem(testItem item) { linkedItemList.add(item); }
-// Remove item searches for the fist instance of the inputted item and removes it
+// Remove item searches for the first instance of the inputted item and removes it
     protected void removeItem(testItem item) { linkedItemList.remove(item); }
 // Remove Item needs to also remove the item from the project in the Gson file
     public void sortListbyDueDate() {  }
