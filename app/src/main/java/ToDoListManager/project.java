@@ -1,12 +1,22 @@
 package ToDoListManager;
 
-public class project extends itemList {
+import java.io.IOException;
+
+public class Project extends itemList {
 // The project constructor
-    protected project(String title, String description) {
+    protected Project(String title, String description) {
         super(title, description);
     }
+
 // A method that creates a new project according to the parameters
-    public project newProject(String title, String description) {
-       return new project(title,description);
+    public static Project newProject(String title, String description) throws IOException {
+        Project newP = new Project(title,description);
+        fileRead.writeJSON(newP,title);
+        return newP;
+    }
+
+    public String toString() {
+        return "Project [ Title: "+getTitle()+", Description: "+ getDescription() +"\n"
+                +" linkedItemList " + linkedItemList.toString() + "]";
     }
 }

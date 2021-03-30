@@ -9,56 +9,41 @@ import java.io.IOException;
 
 public class fileRead {
 
-    static class testItem {
-    private String title;
-    private String description;
-    testItem(String t, String d) {
-    title = t;
-    description = d;
-    }
-    public String getTitle() {
-        return title;
-        }
-    public String getDescription() {
-            return description;
-        }
-    public void setTitle(String title) {
-            this.title = title;
-        }
-    public void setDescription(String description) {
-            this.description = description;
-        }
-    public String toString() {
-        return "testItem [ title: "+title+", description: "+ description+ " ]";
-    }
+    private static GsonBuilder builder = new GsonBuilder();
+    private static Gson gson = builder.create();
+
+    public Project projectFileReader(String filename) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("ProjectDataFiles/"+filename));
+        return gson.fromJson(bufferedReader, Project.class);
     }
 
-
-
-    private testItem itemFileReader() throws IOException {
-    GsonBuilder builder = new GsonBuilder();
-    Gson gson = builder.create();
-    BufferedReader bufferedReader = new BufferedReader(
-            new FileReader("data.json"));
-    testItem testitem = gson.fromJson(bufferedReader, testItem.class);
-    return testitem;
+    public testItem testItemFileReader(String filename) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("ProjectDataFiles/"+filename));
+        return gson.fromJson(bufferedReader, testItem.class);
     }
 
-
-    private void writeJSON(testItem testItem) throws IOException {
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-        FileWriter writer = new FileWriter("data.json");
-        writer.write(gson.toJson(testItem));
+    public static void writeJSON(Object object, String filename) throws IOException {
+        FileWriter writer = new FileWriter("ProjectDataFiles/"+filename);
+        writer.write(gson.toJson(object));
         writer.close();
     }
     public static void main(String[] args){
         try{
             fileRead tester = new fileRead();
-            testItem item = new testItem("testtitle","testdescription");
-            tester.writeJSON(item);
-            testItem item1 = tester.itemFileReader();
-            System.out.println(item1);
+            testItem item = new testItem("testItemTitle","testItemDescription");
+            testItem item2 = new testItem("testItemTitle2","testItemDescription2");
+            Project testProject = ToDoListManager.Project.newProject("testProjectTitle","testProjectDescription");
+            testProject.addItem(item);
+            testProject.addItem(item2);
+            writeJSON(testProject, testProject.getTitle());
+
+            Project testProject2 = ToDoListManager.Project.newProject("testProjectTitle2","testProjectDescription2");
+            testProject2.addItem(item2);
+            writeJSON(testProject2,testProject2.getTitle());
+            System.out.println(tester.projectFileReader(testProject.getTitle()));
+            System.out.println(tester.projectFileReader(testProject2.getTitle()));
+
+
         } catch(IOException e) {
             e.printStackTrace();
         }
