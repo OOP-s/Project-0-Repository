@@ -21,7 +21,7 @@ public abstract class itemList {
     public void addItem(testItem item) { linkedItemList.add(item); }
 // Remove item searches for the first instance of the inputted item and removes it
     protected void removeItem(testItem item) { linkedItemList.remove(item); }
-// Remove Item needs to also remove the item from the project in the Gson file
+// Add and Remove Item needs to also remove the item from the project in the Gson file
     public void sortListbyDueDate() {  }
     public void sortListbyPriority() {  }
     public void sortListbyLabels(String label) {  }
