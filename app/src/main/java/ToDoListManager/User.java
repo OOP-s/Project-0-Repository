@@ -1,6 +1,7 @@
 package ToDoListManager;
 
 public class User extends UserTemplate {
+    //instance variables specific to user class
     private String firstName;
     private String lastName;
     private String biography;

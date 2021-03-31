@@ -1,14 +1,14 @@
 package ToDoListManager;
 
 public class Admin extends UserTemplate {
-
+// constructor for admin class
     public Admin () {
        super.email = "Admin";
        super.password = "password";
     }
-
-    public boolean changePassword(String email, String newPassword) {
-        //code to change password.
+// method for change password in Admin class.
+    public boolean changePassword(User user, String newPassword) {
+        user.setPassword(newPassword);
         return true;
     }
 }
