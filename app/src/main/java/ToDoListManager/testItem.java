@@ -3,7 +3,7 @@ package ToDoListManager;
 public class testItem {
     private String title;
     private String description;
-    private Project project;
+    private transient Project project;
     testItem(String t, String d) {
         title = t;
         description = d;
@@ -15,6 +15,7 @@ public class testItem {
         return description;
     }
     public Project getProject() { return project; }
+    public void setProject(Project project) { this.project = project; }
     public void setTitle(String title) { this.title = title; }
     public void setDescription(String description) {
         this.description = description;

@@ -23,15 +23,21 @@ public abstract class itemList {
     public void setDescription(String newDescription) { description = newDescription; }
 
 // This add item method adds the inputted item into the linked list at the end
-    public void addItem(testItem item) throws IOException {
+    public void addItem(testItem item, Project project) throws IOException {
         linkedItemList.add(item);
-        //fileRead.writeJSON(item.getProject(),item.getProject().getTitle());
+        item.setProject(project);
+        fileRead.writeJSON(item.getProject(),item.getProject().getTitle());
+    }
+    public void addItem(testItem item, subProject subproject) throws IOException {
+        linkedItemList.add(item);
+        item.setProject(subproject);
+        fileRead.writeJSON(item.getProject(),item.getProject().getTitle());
     }
 
 // Remove item searches for the first instance of the inputted item and removes it
     public void removeItem(testItem item) throws IOException {
         linkedItemList.remove(item);
-        //fileRead.writeJSON(item.getProject(),item.getProject().getTitle());
+        fileRead.writeJSON(item.getProject(),item.getProject().getTitle());
     }
 
 // Add and Remove Item needs to also remove the item from the project in the Gson file
