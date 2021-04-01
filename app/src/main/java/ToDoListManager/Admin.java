@@ -3,7 +3,7 @@ package ToDoListManager;
 public class Admin extends UserTemplate {
 // constructor for admin class
     public Admin () {
-       super.email = "Admin";
+       super.username = "Admin";
        super.password = "password";
     }
 // method for change password in Admin class.
