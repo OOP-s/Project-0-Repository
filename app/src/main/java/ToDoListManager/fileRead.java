@@ -11,8 +11,8 @@ public class fileRead {
     private static GsonBuilder builder = new GsonBuilder();
     private static Gson gson = builder.create();
 // The reader classes will each read the designated file and return the object inside it
-    public Project projectFileReader(String filename) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("ProjectDataFiles/"+filename));
+    public Project projectFileReader(User user, String filename) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+user.getUsername()+"/"+filename)));
         return gson.fromJson(bufferedReader, Project.class);
     }
 
@@ -21,8 +21,8 @@ public class fileRead {
         return gson.fromJson(bufferedReader, testItem.class);
     } */
 
-    public static void writeJSON(Object object, String filename) throws IOException {
-        FileWriter writer = new FileWriter("ProjectDataFiles/"+filename);
+    public static void writeJSON(Object object,User user, String filename) throws IOException {
+        FileWriter writer = new FileWriter("DataFiles/Users/"+user.getUsername()+"/"+filename);
         writer.write(gson.toJson(object));
         writer.close();
     }

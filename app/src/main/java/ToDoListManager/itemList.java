@@ -6,6 +6,7 @@ public abstract class itemList {
 // The title and description of the project
     private String title;
     private String description;
+    private static User user;
 
 // This linked list is going to be the actual data structure that holds the items
     protected LinkedList<testItem> linkedItemList = new LinkedList<testItem>();
@@ -19,6 +20,8 @@ public abstract class itemList {
 // Get-er and Set-er methods for title and description
     public String getTitle() { return title; }
     public String getDescription() { return description; }
+    public User getUser() { return user; }
+    public void setUser(User newUser) { user = newUser; }
     public void setTitle(String newTitle) { title = newTitle; }
     public void setDescription(String newDescription) { description = newDescription; }
 
