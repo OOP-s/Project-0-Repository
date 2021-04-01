@@ -2,15 +2,15 @@ package ToDoListManager;
 
 public abstract class UserTemplate {
     //variables common to both admin and user
-    protected String email;
+    protected String username;
     protected String password;
 
     protected  UserTemplate (){
 
     }
     // constructor for abstract user template class
-    protected UserTemplate (String email, String password) {
-        this.email = email;
+    protected UserTemplate (String username, String password) {
+        this.username = username;
         this.password = password;
     }
 

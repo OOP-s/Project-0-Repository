@@ -9,25 +9,25 @@ public class User extends UserTemplate {
 
 
     // four different constructors since a biography and profile image are optional for the user
-    public User(String email, String password, String firstName, String lastName){
-        super(email, password);
+    public User(String username, String password, String firstName, String lastName){
+        super(username, password);
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    public User(String email, String password, String firstName, String lastName, String biography){
-        super(email, password);
+    public User(String username, String password, String firstName, String lastName, String biography){
+        super(username, password);
         this.firstName = firstName;
         this.lastName = lastName;
         this.biography = biography;
     }
-    public User(String email, String password, String firstName, String lastName, PNG profileImage){
-        super(email, password);
+    public User(String username, String password, String firstName, String lastName, PNG profileImage){
+        super(username, password);
         this.firstName = firstName;
         this.lastName = lastName;
         this.profileImage = profileImage;
     }
-    public User(String email, String password, String firstName, String lastName, String biography, PNG profileImage){
-        super(email, password);
+    public User(String username, String password, String firstName, String lastName, String biography, PNG profileImage){
+        super(username, password);
         this.firstName = firstName;
         this.lastName = lastName;
         this. biography = biography;
@@ -40,9 +40,7 @@ public class User extends UserTemplate {
     public String getLastName() {
         return lastName;
     }
-    public String getEmail() {
-        return email;
-    }
+    public String getUsername() { return username; }
     public String getPassword() {
         return password;
     }
@@ -58,8 +56,8 @@ public class User extends UserTemplate {
         this.firstName = firstName;
         this.lastName = lastName;
     }
-    public void setEmail(String email) {
-        this.email = email;
+    public void setUsername(String username) {
+        this.username = username;
     }
     public void setPassword(String password) {
         this.password = password;
