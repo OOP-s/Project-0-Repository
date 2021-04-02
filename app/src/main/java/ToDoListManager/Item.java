@@ -21,6 +21,6 @@ public class Item {
         this.description = description;
     }
     public String toString() {
-        return "\n testItem [ title: "+title+", description: "+ description+ " ]";
+        return "\n tItem [ title: "+title+", description: "+ description+ " ]";
     }
 }
