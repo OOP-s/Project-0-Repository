@@ -4,7 +4,7 @@ public class Task extends Item {
     private String dueDate;
     private String priority;
     private String[] labels;
-    private itemList parentProject;
+    private transient itemList parentProject;
     private boolean isOverdue;
     private boolean isCompleted;
 
