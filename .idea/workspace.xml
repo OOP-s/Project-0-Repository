@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="Worked on the fileRead class and fixed some itemList methods by making the testItem project variable transient">
-      <change beforePath="$PROJECT_DIR$/ProjectDataFiles/testProjectTitle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectDataFiles/testProjectTitle2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/project.java" afterDir="false" />
+    <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="Added Users Folder">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,12 +26,7 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ToDoListManager" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -47,6 +41,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
@@ -73,7 +72,8 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/SCData_Struct_Alg_Spr_2020/src/FinalProject" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../IdeaProjects/SCData_Struct_Alg_Spr_2020/src/FinalProject" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -178,10 +178,40 @@
       <option name="project" value="LOCAL" />
       <updated>1617238530091</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added Users Folder">
+      <created>1617238844587</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1617238844587</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Added Users Folder">
+      <created>1617242333092</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1617242333093</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Added Users Folder">
+      <created>1617242415699</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1617242415699</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
@@ -194,7 +224,8 @@
     <MESSAGE value="Worked on the fileRead class and made some minor changes to other classes" />
     <MESSAGE value="Worked on the fileRead class and fixed some itemList methods by making the testItem project variable transient" />
     <MESSAGE value="Changed ProjectDataFiles to DataFiles and worked on itemList methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed ProjectDataFiles to DataFiles and worked on itemList methods" />
+    <MESSAGE value="Added Users Folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Users Folder" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
