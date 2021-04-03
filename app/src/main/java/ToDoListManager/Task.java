@@ -1,19 +1,18 @@
 package ToDoListManager;
 
-public class Task extends Manager {
-    private string dueDate;
-    private string priority;
-    private string array labels;
-    private ItemList parentProject;
-    provate boolean isOverdue;
-    private boolen isCompleted;
+public class Task extends Item {
+    private String dueDate;
+    private String priority;
+    private String[] labels;
+    private itemList parentProject;
+    private boolean isOverdue;
+    private boolean isCompleted;
 
-    public Task(title: string, description: string, labels: string array){
-        this.title = title;
-        this.description = description;
+    public Task(String title, String description, String[] labels){
+        super(title, description);
         this.labels = labels;
     }
-    public Task(title: string, description: string, parentProject: ItemList){
+    public Task(, description: string, parentProject: ItemList){
         this.title = title;
         this.descreption = description;
         this.parentProject = initial project;

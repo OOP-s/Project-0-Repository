@@ -40,7 +40,7 @@ public class User extends UserTemplate {
     public String getLastName() {
         return lastName;
     }
-    public String getUsername() { return username; }
+    public String getUsername() { return username;}
     public String getPassword() {
         return password;
     }
