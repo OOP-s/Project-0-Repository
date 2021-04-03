@@ -34,15 +34,15 @@ public class User extends UserTemplate {
         this.profileImage = profileImage;
     }
     //getter methods
+    public String getUsername() { return username;}
+    public String getPassword() {
+        return password;
+    }
     public String getFirstName() {
         return firstName;
     }
     public String getLastName() {
         return lastName;
-    }
-    public String getUsername() { return username;}
-    public String getPassword() {
-        return password;
     }
     public String getBiography() {
         return biography;
@@ -68,4 +68,6 @@ public class User extends UserTemplate {
     public void setProfileImage(PNG profileImage) {
         this.profileImage = profileImage;
     }
+
+
 }
