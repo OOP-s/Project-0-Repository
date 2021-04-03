@@ -12,7 +12,7 @@ public class fileRead {
     private static Gson gson = builder.create();
 // The reader classes will each read the designated file and return the object inside it
     public Project projectFileReader(User user, String filename) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+user.getUsername()+"/"+filename)));
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+user.getUsername()+"/"+filename));
         return gson.fromJson(bufferedReader, Project.class);
     }
 
@@ -26,7 +26,7 @@ public class fileRead {
         writer.write(gson.toJson(object));
         writer.close();
     }
-
+ /*
     public static void main(String[] args){
         try{
             fileRead tester = new fileRead();
@@ -47,6 +47,6 @@ public class fileRead {
         } catch(IOException e) {
             e.printStackTrace();
         }
-    }
+    } */
 
 }
