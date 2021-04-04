@@ -33,7 +33,7 @@ public class User extends UserTemplate {
         super(username, password);
         this.firstName = firstName;
         this.lastName = lastName;
-        this. biography = biography;
+        this.biography = biography;
         this.profileImage = profileImage;
     }
 
