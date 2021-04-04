@@ -30,7 +30,7 @@ public class subProject extends Project {
             project.linkedItemList.addFirst(itemHolder);
         }
         fileRead.writeJSON(project, project.getUser(), project.getTitle());
-        Files.deleteIfExists(Paths.get("C:\\Users\\Mayank\\Desktop\\ 445.txt"));
+        Files.deleteIfExists(Paths.get("DataFiles/Users/"+this.getUser().getUsername()+"/SubProjects/" + this.getTitle()));
     }
 
     public String toString() {
