@@ -5,6 +5,7 @@ public class testItem {
     private String title;
     private String description;
     private transient Project project;
+    private transient subProject subProject;
     private LocalDate dueDate;
     private String priority;
     private String[] labels;
@@ -21,6 +22,8 @@ public class testItem {
     public LocalDate getDueDate() { return dueDate; }
     public String getPriority() { return priority; }
     public String[] getLabels() { return labels; }
+    public subProject getSubProject() { return subProject; }
+    public void setSubProject(subProject subP) { subProject = subP; }
     public Project getProject() { return project; }
     public void setProject(Project project) { this.project = project; }
     public void setTitle(String title) { this.title = title; }

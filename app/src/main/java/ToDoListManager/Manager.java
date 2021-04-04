@@ -8,17 +8,37 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+
+
 public class Manager {
     public ArrayList<User> users = new ArrayList<>();
     public Admin admin = new Admin();
 
     //method to register user.
-    public void registerUser(String username, String password, String firstName, String lastName) {
+    public void registerUser(String username, String password, String firstName, String lastName) throws IOException {
         //code to read all users from gson file into the ArrayList.
         User newUser = new User(username, password, firstName, lastName);
         users.add(newUser);
-        //code to write all users into a new gson file.
+        //code to write all users into a gson file.
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        FileWriter writer = new FileWriter("userInfo/Users");
+        writer.write(gson.toJson(users));
+        writer.close();
+        Project Upcoming = Project.newProject(newUser,"Upcoming","Upcoming Tasks");
+        Project Today = Project.newProject(newUser,"Today","Tasks Due Today");
+        Project Overdue = Project.newProject(newUser,"Overdue","Overdue Tasks");
+        Project Completed = Project.newProject(newUser,"Completed","Completed Tasks");
+        fileRead.writeJSON(Upcoming,newUser,"Upcoming");
+        fileRead.writeJSON(Overdue,newUser,"Overdue");
+        fileRead.writeJSON(Today,newUser,"Today");
+        fileRead.writeJSON(Completed,newUser,"Completed");
     }
+
+    Public ArrayList<> returnUsers {
+
+    }
+
     //method for logging in as a user.
     public void loginUser(String username, String password) {
         //code to read all users from gson file into the ArrayList.
@@ -36,12 +56,12 @@ public class Manager {
         }
     }
 
-    public static void main(String[] args) {
-        Manager manager = new Manager();
-        manager.registerUser("stougarr", "passw0rd", "Garrett", "Stouffer");
-        manager.registerUser("test", "testing", "bill", "Hopkins");
-        System.out.println(manager.users.toString());
-    }
+    //public static void main(String[] args) throws IOException {
+      //  Manager manager = new Manager();
+       // manager.registerUser("stougarr", "passw0rd", "Garrett", "Stouffer");
+       // manager.registerUser("test", "testing", "bill", "Hopkins");
+       // System.out.println(manager.users.toString());
+ //   }
 
 
 }

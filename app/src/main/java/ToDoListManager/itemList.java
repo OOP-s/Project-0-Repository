@@ -30,7 +30,9 @@ public abstract class itemList {
 
 // This add item method adds the inputted item into the linked list at the end
     public void addItem(testItem item, Project project) throws IOException {
-        linkedItemList.add(item);
+        Project newFile = fileRead.projectFileReader(item.getProject().getUser(), item.getProject().getTitle());
+        newFile.linkedItemList.add(item);
+        project = newFile;
         item.setProject(project);
         fileRead.writeJSON(item.getProject(), item.getProject().getUser(),item.getProject().getTitle());
         if (item.getDueDate().equals(LocalDate.now())) {
@@ -38,7 +40,9 @@ public abstract class itemList {
         }
     }
     public void addItem(testItem item, subProject subproject) throws IOException {
-        linkedItemList.add(item);
+        subProject newFile = (subProject) fileRead.subProjectFileReader(item.getSubProject().getUser(), item.getSubProject().getTitle());
+        newFile.linkedItemList.add(item);
+        subproject = newFile;
         item.setProject(subproject);
         fileRead.writeJSON(item.getProject(), item.getProject().getUser(),item.getProject().getTitle());
     }
