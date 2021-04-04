@@ -2,6 +2,8 @@ package ToDoListManager;
 import java.io.IOException;
 import java.util.LinkedList;
 import java.nio.file.*;
+import java.time.LocalDate;
+
 
 public abstract class itemList {
 // The title and description of the project
@@ -31,6 +33,9 @@ public abstract class itemList {
         linkedItemList.add(item);
         item.setProject(project);
         fileRead.writeJSON(item.getProject(), item.getProject().getUser(),item.getProject().getTitle());
+        if (item.getDueDate().equals(LocalDate.now())) {
+            fileRead.
+        }
     }
     public void addItem(testItem item, subProject subproject) throws IOException {
         linkedItemList.add(item);
@@ -45,11 +50,11 @@ public abstract class itemList {
     }
 
 // The sort methods iterate through the list, then find matches and move them to the front of the list
-    public void sortListByDueDate(String date) {
+    public void sortListByDueDate(LocalDate date) {
         int length = linkedItemList.size();
         testItem itemHolder;
         for (int i = 0; i < length; i++)  {
-            if (linkedItemList.get(i).getDueDate().equalsIgnoreCase(date)) {
+            if (linkedItemList.get(i).getDueDate() == date) {
                 itemHolder = linkedItemList.get(i);
                 linkedItemList.remove(i);
                 linkedItemList.addFirst(itemHolder);
@@ -60,7 +65,7 @@ public abstract class itemList {
         int length = linkedItemList.size();
         testItem itemHolder;
         for (int i = 0; i < length; i++)  {
-            if (linkedItemList.get(i).getDueDate().equalsIgnoreCase(priority)) {
+            if (linkedItemList.get(i).getPriority().equalsIgnoreCase(priority)) {
                 itemHolder = linkedItemList.get(i);
                 linkedItemList.remove(i);
                 linkedItemList.addFirst(itemHolder);
@@ -71,7 +76,7 @@ public abstract class itemList {
         int length = linkedItemList.size();
         testItem itemHolder;
         for (int i = 0; i < length; i++)  {
-            if (linkedItemList.get(i).getDueDate().equalsIgnoreCase(label)) {
+            if (linkedItemList.get(i).getLabels().equalsIgnoreCase(label)) {
                 itemHolder = linkedItemList.get(i);
                 linkedItemList.remove(i);
                 linkedItemList.addFirst(itemHolder);
@@ -80,7 +85,15 @@ public abstract class itemList {
     }
     public void showCompletedTasks() {  }
     public void removeItemList() throws IOException {
-        Files.deleteIfExists(Paths.get("DataFiles/Users/"+this.getUser().getUsername()+"/" + this.getTitle()));
+        if (this.getTitle().equalsIgnoreCase("Today")) {
+            if (this.getTitle().equalsIgnoreCase("Upcoming")) {
+                if (this.getTitle().equalsIgnoreCase("Overdue")) {
+                    if (this.getTitle().equalsIgnoreCase("Completed") ) {
+                        Files.deleteIfExists(Paths.get("DataFiles/Users/" + this.getUser().getUsername() + "/" + this.getTitle()));
+                    }
+                }
+            }
+        }
     }
 
 }

@@ -1,10 +1,11 @@
 package ToDoListManager;
+import java.time.LocalDate;
 
 public class testItem {
     private String title;
     private String description;
     private transient Project project;
-    private String dueDate;
+    private LocalDate dueDate;
     private String priority;
     private String[] labels;
     testItem(String t, String d) {
@@ -17,7 +18,7 @@ public class testItem {
     public String getDescription() {
         return description;
     }
-    public String getDueDate() { return dueDate; }
+    public LocalDate getDueDate() { return dueDate; }
     public String getPriority() { return priority; }
     public String[] getLabels() { return labels; }
     public Project getProject() { return project; }

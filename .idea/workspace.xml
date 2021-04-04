@@ -6,8 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/fileRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/fileRead.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/itemList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/itemList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/subProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/subProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/testItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/testItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -291,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617499835327</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Created a remove itemList method">
+      <created>1617500443845</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1617500443845</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -322,7 +330,8 @@
     <MESSAGE value="Minor changes" />
     <MESSAGE value="Changed Manager class and commented out errors" />
     <MESSAGE value="Worked on switching a subproject to a project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worked on switching a subproject to a project" />
+    <MESSAGE value="Created a remove itemList method" />
+    <option name="LAST_COMMIT_MESSAGE" value="Created a remove itemList method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
