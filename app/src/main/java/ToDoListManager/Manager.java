@@ -35,7 +35,7 @@ public class Manager {
         fileRead.writeJSON(Completed,newUser,"Completed");
     }
 
-    Public ArrayList<> returnUsers {
+    public User returnUsers {
 
     }
 

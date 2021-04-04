@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.nio.file.*;
 import java.time.LocalDate;
+import java.lang.*;
 
 
 public abstract class itemList {
@@ -35,8 +36,20 @@ public abstract class itemList {
         project = newFile;
         item.setProject(project);
         fileRead.writeJSON(item.getProject(), item.getProject().getUser(),item.getProject().getTitle());
+        if (item.getDueDate().compareTo(LocalDate.now()) > 0 ) {
+            Project Overdue = fileRead.projectFileReader(item.getProject().getUser(), "Overdue");
+            Overdue.linkedItemList.add(item);
+            fileRead.writeJSON(Overdue, item.getProject().getUser(),"Overdue");
+        }
+        if (item.getDueDate().compareTo(LocalDate.now()) < 0 ) {
+            Project Upcoming = fileRead.projectFileReader(item.getProject().getUser(), "Upcoming");
+            Upcoming.linkedItemList.add(item);
+            fileRead.writeJSON(Upcoming, item.getProject().getUser(),"Upcoming");
+        }
         if (item.getDueDate().equals(LocalDate.now())) {
-            fileRead.
+            Project Today = fileRead.projectFileReader(item.getProject().getUser(), "Today");
+            Today.linkedItemList.add(item);
+            fileRead.writeJSON(Today, item.getProject().getUser(),"Today");
         }
     }
     public void addItem(testItem item, subProject subproject) throws IOException {
@@ -45,6 +58,21 @@ public abstract class itemList {
         subproject = newFile;
         item.setProject(subproject);
         fileRead.writeJSON(item.getProject(), item.getProject().getUser(),item.getProject().getTitle());
+        if (item.getDueDate().compareTo(LocalDate.now()) > 0 ) {
+            Project Overdue = fileRead.projectFileReader(item.getProject().getUser(), "Overdue");
+            Overdue.linkedItemList.add(item);
+            fileRead.writeJSON(Overdue, item.getProject().getUser(),"Overdue");
+        }
+        if (item.getDueDate().compareTo(LocalDate.now()) < 0 ) {
+            Project Upcoming = fileRead.projectFileReader(item.getProject().getUser(), "Upcoming");
+            Upcoming.linkedItemList.add(item);
+            fileRead.writeJSON(Upcoming, item.getProject().getUser(),"Upcoming");
+        }
+        if (item.getDueDate().equals(LocalDate.now())) {
+            Project Today = fileRead.projectFileReader(item.getProject().getUser(), "Today");
+            Today.linkedItemList.add(item);
+            fileRead.writeJSON(Today, item.getProject().getUser(),"Today");
+        }
     }
 
 // Remove item searches for the first instance of the inputted item and removes it
