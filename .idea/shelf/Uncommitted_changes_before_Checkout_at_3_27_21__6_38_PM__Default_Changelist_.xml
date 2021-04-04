@@ -1,9 +1,0 @@
-<changelist name="Uncommitted_changes_before_Checkout_at_3_27_21,_6_38_PM_[Default_Changelist]" date="1616891972187" recycled="true" deleted="true">
-  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_27_21,_6_38_PM_[Default_Changelist]/shelved.patch" />
-  <option name="DESCRIPTION" value="Uncommitted changes before Checkout at 3/27/21, 6:38 PM [Default Changelist]" />
-  <binary>
-    <option name="BEFORE_PATH" value=".gradle/checksums/checksums.lock" />
-    <option name="AFTER_PATH" value=".gradle/checksums/checksums.lock" />
-    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_27_21,_6_38_PM_[Default_Changelist]/checksums.lock" />
-  </binary>
-</changelist>

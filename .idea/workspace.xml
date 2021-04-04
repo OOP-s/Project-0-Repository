@@ -4,10 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="">
+    <list default="true" id="c9874836-0baf-4e94-b103-73e8f8ca0657" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_27_21,_6_38_PM_[Default_Changelist]/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_27_21,_6_38_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_3_27_21__6_38_PM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/itemList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/itemList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/subProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/subProject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/SubTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/SubTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Task.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,304 +42,36 @@
       </state>
     </system>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="develop" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="ROOT_SYNC" value="SYNC" />
-  </component>
-  <component name="GitSEFilterConfiguration">
-    <file-type-list>
-      <filtered-out-file-type name="LOCAL_BRANCH" />
-      <filtered-out-file-type name="REMOTE_BRANCH" />
-      <filtered-out-file-type name="TAG" />
-      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
-    </file-type-list>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
-  <component name="ProjectId" id="1qMXNRLA47GA3X4HU305FRneTva" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1qgY20vsPLKOq7fx81Po2gmJnQl" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../IdeaProjects/SCData_Struct_Alg_Spr_2020/src/FinalProject" />
-    <property name="project.structure.last.edited" value="Problems" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
-  </component>
-  <component name="RunManager" selected="Application.Manager">
-    <configuration name="GsonTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ToDoListManager.GsonTester" />
-      <module name="ToDoListManager.app.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ToDoListManager.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Manager (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ToDoListManager.Manager" />
-      <module name="ToDoListManager.app.test" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ToDoListManager.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Manager" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ToDoListManager.Manager" />
-      <module name="ToDoListManager.app.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ToDoListManager.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="UI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ToDoListManager.UI" />
-      <module name="ToDoListManager.app.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ToDoListManager.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="fileRead" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ToDoListManager.fileRead" />
-      <module name="ToDoListManager.app.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ToDoListManager.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Manager (1)" />
-        <item itemvalue="Application.Manager" />
-        <item itemvalue="Application.UI" />
-        <item itemvalue="Application.fileRead" />
-        <item itemvalue="Application.GsonTester" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task id="LOCAL-00001" summary="Messed around with reading and writing to Gson files (NOT FINAL)">
-      <created>1616653253953</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1616653253953</updated>
-    </task>
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="" />
-      <created>1616890393568</created>
+      <changelist id="c9874836-0baf-4e94-b103-73e8f8ca0657" name="Default Changelist" comment="" />
+      <created>1617502490905</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1616890393568</updated>
+      <updated>1617502490905</updated>
     </task>
-    <task id="LOCAL-00002" summary="Added a linked list to hold items in the abstract itemlist file">
-      <created>1616892964542</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1616892964542</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Fixed an error and added comments">
-      <created>1616895193324</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1616895193324</updated>
-    </task>
-    <task id="LOCAL-00004" summary="changes">
-      <created>1616897311814</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1616897311814</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Changed some comments">
-      <created>1617065904081</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1617065904081</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Worked on the fileRead class and made some minor changes to other classes">
-      <created>1617077054444</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1617077054444</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Worked on the fileRead class and fixed some itemList methods by making the testItem project variable transient">
-      <created>1617233500659</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1617233500682</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Changed ProjectDataFiles to DataFiles and worked on itemList methods">
-      <created>1617238530058</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1617238530091</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added Users Folder">
-      <created>1617238844587</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1617238844587</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added Users Folder">
-      <created>1617242333092</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1617242333093</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Added Users Folder">
-      <created>1617242415699</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1617242415699</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Made some changes to Task class">
-      <created>1617472938444</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1617472938444</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Added sort methods to the abstract class itemList">
-      <created>1617493986772</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1617493986772</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Minor changes">
-      <created>1617494214325</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1617494214325</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Changed Manager class and commented out errors">
-      <created>1617495808526</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1617495808526</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Worked on switching a subproject to a project">
-      <created>1617498393899</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1617498393899</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Worked on switching a subproject to a project">
-      <created>1617499316810</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1617499316810</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Worked on switching a subproject to a project">
-      <created>1617499835327</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1617499835327</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Messed around with reading and writing to Gson files (NOT FINAL)" />
-    <MESSAGE value="Added a linked list to hold items in the abstract itemlist file" />
-    <MESSAGE value="Fixed an error and added comments" />
-    <MESSAGE value="changes" />
-    <MESSAGE value="Changed some comments" />
-    <MESSAGE value="Worked on the fileRead class and made some minor changes to other classes" />
-    <MESSAGE value="Worked on the fileRead class and fixed some itemList methods by making the testItem project variable transient" />
-    <MESSAGE value="Changed ProjectDataFiles to DataFiles and worked on itemList methods" />
-    <MESSAGE value="Added Users Folder" />
-    <MESSAGE value="Made some changes to Task class" />
-    <MESSAGE value="Added sort methods to the abstract class itemList" />
-    <MESSAGE value="Minor changes" />
-    <MESSAGE value="Changed Manager class and commented out errors" />
-    <MESSAGE value="Worked on switching a subproject to a project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worked on switching a subproject to a project" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <breakpoint type="java-exception">
-          <properties class="java.lang.StackOverflowError" package="java.lang" />
-          <option name="timeStamp" value="1" />
-        </breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
