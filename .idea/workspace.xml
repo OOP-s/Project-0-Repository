@@ -7,7 +7,9 @@
     <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/fileRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/fileRead.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/itemList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/itemList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/subProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/subProject.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -312,7 +314,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617505947972</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Finished the addItem methods in the abstract itemList class">
+      <created>1617533248646</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1617533248646</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -345,7 +354,8 @@
     <MESSAGE value="Worked on switching a subproject to a project" />
     <MESSAGE value="Created a remove itemList method" />
     <MESSAGE value="Worked on add item methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="Worked on add item methods" />
+    <MESSAGE value="Finished the addItem methods in the abstract itemList class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished the addItem methods in the abstract itemList class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

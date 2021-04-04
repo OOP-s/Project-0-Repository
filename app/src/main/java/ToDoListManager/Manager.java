@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
-
+import java.util.List;
 
 
 public class Manager {
@@ -25,19 +25,19 @@ public class Manager {
         FileWriter writer = new FileWriter("userInfo/Users");
         writer.write(gson.toJson(users));
         writer.close();
+        // Creating the default projects each user has
         Project Upcoming = Project.newProject(newUser,"Upcoming","Upcoming Tasks");
         Project Today = Project.newProject(newUser,"Today","Tasks Due Today");
         Project Overdue = Project.newProject(newUser,"Overdue","Overdue Tasks");
         Project Completed = Project.newProject(newUser,"Completed","Completed Tasks");
+        // Writing the default projects to file
         fileRead.writeJSON(Upcoming,newUser,"Upcoming");
         fileRead.writeJSON(Overdue,newUser,"Overdue");
         fileRead.writeJSON(Today,newUser,"Today");
         fileRead.writeJSON(Completed,newUser,"Completed");
     }
 
-    public User returnUsers {
 
-    }
 
     //method for logging in as a user.
     public void loginUser(String username, String password) {
