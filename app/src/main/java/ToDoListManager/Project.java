@@ -9,7 +9,7 @@ public class Project extends itemList {
     }
 
 // A method that creates a new project according to the parameters
-    public Project newProject(User user, String title, String description) throws IOException {
+    public static Project newProject(User user, String title, String description) throws IOException {
         Project newP = new Project(title,description);
         fileRead.writeJSON(newP,user,title);
         return newP;

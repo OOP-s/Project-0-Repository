@@ -11,4 +11,5 @@ public class Admin extends UserTemplate {
         user.setPassword(newPassword);
         return true;
     }
+
 }

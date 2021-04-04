@@ -14,6 +14,9 @@ public abstract class UserTemplate {
         this.password = password;
     }
 
+    //getter methods
+    public String getUsername() { return username;}
+    public String getPassword() { return password; }
 
 //function to check login still needs to be completed.
     public boolean checkLogin(String username, String password) {
