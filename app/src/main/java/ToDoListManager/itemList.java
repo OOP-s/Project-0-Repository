@@ -1,6 +1,7 @@
 package ToDoListManager;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.nio.file.*;
 
 public abstract class itemList {
 // The title and description of the project
@@ -43,8 +44,8 @@ public abstract class itemList {
         fileRead.writeJSON(item.getProject(), item.getProject().getUser(),item.getProject().getTitle());
     }
 
-// Add and Remove Item needs to also remove the item from the project in the Gson file
-    public void sortListbyDueDate(String date) {
+// The sort methods iterate through the list, then find matches and move them to the front of the list
+    public void sortListByDueDate(String date) {
         int length = linkedItemList.size();
         testItem itemHolder;
         for (int i = 0; i < length; i++)  {
@@ -55,7 +56,7 @@ public abstract class itemList {
             }
         }
     }
-    public void sortListbyPriority(String priority) {
+    public void sortListByPriority(String priority) {
         int length = linkedItemList.size();
         testItem itemHolder;
         for (int i = 0; i < length; i++)  {
@@ -66,7 +67,7 @@ public abstract class itemList {
             }
         }
     }
-    public void sortListbyLabels(String label) {
+    public void sortListByLabels(String label) {
         int length = linkedItemList.size();
         testItem itemHolder;
         for (int i = 0; i < length; i++)  {
@@ -78,7 +79,9 @@ public abstract class itemList {
         }
     }
     public void showCompletedTasks() {  }
-    public void removeItemList() {  }
+    public void removeItemList() throws IOException {
+        Files.deleteIfExists(Paths.get("DataFiles/Users/"+this.getUser().getUsername()+"/" + this.getTitle()));
+    }
 
 }
 

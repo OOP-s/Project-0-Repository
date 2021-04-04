@@ -1,5 +1,4 @@
 package ToDoListManager;
-import java.io.File;
 import java.nio.file.*;
 
 import java.io.IOException;
