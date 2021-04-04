@@ -1,4 +1,6 @@
 package ToDoListManager;
+import java.io.File;
+import java.nio.file.*;
 
 import java.io.IOException;
 
@@ -21,12 +23,14 @@ public class subProject extends Project {
     public void convertSubProject() throws IOException {
         Project project = newProject(this.getUser(), this.getTitle(), this.getDescription());
         testItem itemHolder;
-        int length = linkedItemList.size();
+        int length = this.linkedItemList.size();
         for (int i = 0; i < length; i++) {
-            itemHolder = linkedItemList.get(i);
-            linkedItemList.remove(i);
-            linkedItemList.addFirst(itemHolder);
+            itemHolder = this.linkedItemList.get(i);
+            this.linkedItemList.remove(i);
+            project.linkedItemList.addFirst(itemHolder);
         }
+        fileRead.writeJSON(project, project.getUser(), project.getTitle());
+        Files.deleteIfExists(Paths.get("C:\\Users\\Mayank\\Desktop\\ 445.txt"));
     }
 
     public String toString() {
