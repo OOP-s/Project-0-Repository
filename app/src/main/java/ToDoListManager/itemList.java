@@ -153,7 +153,7 @@ public abstract class itemList {
 
     }
     // This remove method checks to make sure you aren't attempting to delete a default list and then deletes the list
-    public void removeItemList() throws IOException {
+    public void removeProject() throws IOException {
         if (this.getTitle().equalsIgnoreCase("Today")) {
             if (this.getTitle().equalsIgnoreCase("Upcoming")) {
                 if (this.getTitle().equalsIgnoreCase("Overdue")) {
@@ -163,6 +163,9 @@ public abstract class itemList {
                 }
             }
         }
+    }
+    public void removeSubProject() throws IOException {
+        Files.deleteIfExists(Paths.get("DataFiles/Users/" + this.getUser().getUsername() + "/SubProjects/" + this.getTitle()));
     }
 
 }
