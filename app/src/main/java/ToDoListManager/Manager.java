@@ -11,11 +11,11 @@ import java.util.List;
 
 
 public class Manager {
-    public ArrayList<User> users = new ArrayList<>();
-    public Admin admin = new Admin();
+    public static ArrayList<User> users = new ArrayList<>();
+    public static Admin admin = new Admin();
 
     //method to register user.
-    public void registerUser(String username, String password, String firstName, String lastName) throws IOException {
+    public static void registerUser(String username, String password, String firstName, String lastName) throws IOException {
         //code to read all users from gson file into the ArrayList.
         User newUser = new User(username, password, firstName, lastName);
         users.add(newUser);
@@ -40,19 +40,22 @@ public class Manager {
 
 
     //method for logging in as a user.
-    public void loginUser(String username, String password) {
+    public static int loginUser(String username, String password) {
         //code to read all users from gson file into the ArrayList.
         int amntUsers = users.size();
-        for (int i =0; i < amntUsers; i++) {
-            if(users.get(i).getUsername() == username && users.get(i).getPassword() == password){
+        for (User user : users) {
+            if (user.getUsername().equals(username) && user.getPassword().equals(password)) {
                 //code to login to the users account.
+                return 1;
             }
         }
-        if (admin.getUsername() == username && admin.getPassword() == password) {
+        if (admin.getUsername().equals(username) && admin.getPassword().equals(password)) {
             //code to login as admin.
+            return 2;
         }
         else {
             // code to display invalid login.
+            return 0;
         }
     }
 
