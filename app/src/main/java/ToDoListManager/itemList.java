@@ -29,24 +29,54 @@ public abstract class itemList {
     public void addItem(testItem item, Project project) throws IOException {
         linkedItemList.add(item);
         item.setProject(project);
-        fileRead.writeJSON(item.getProject(),item.getProject().getTitle());
+        fileRead.writeJSON(item.getProject(), item.getProject().getUser(),item.getProject().getTitle());
     }
     public void addItem(testItem item, subProject subproject) throws IOException {
         linkedItemList.add(item);
         item.setProject(subproject);
-        fileRead.writeJSON(item.getProject(),item.getProject().getTitle());
+        fileRead.writeJSON(item.getProject(), item.getProject().getUser(),item.getProject().getTitle());
     }
 
 // Remove item searches for the first instance of the inputted item and removes it
     public void removeItem(testItem item) throws IOException {
         linkedItemList.remove(item);
-        fileRead.writeJSON(item.getProject(),item.getProject().getTitle());
+        fileRead.writeJSON(item.getProject(), item.getProject().getUser(),item.getProject().getTitle());
     }
 
 // Add and Remove Item needs to also remove the item from the project in the Gson file
-    public void sortListbyDueDate() {  }
-    public void sortListbyPriority() {  }
-    public void sortListbyLabels(String label) {  }
+    public void sortListbyDueDate(String date) {
+        int length = linkedItemList.size();
+        testItem itemHolder;
+        for (int i = 0; i < length; i++)  {
+            if (linkedItemList.get(i).getDueDate().equalsIgnoreCase(date)) {
+                itemHolder = linkedItemList.get(i);
+                linkedItemList.remove(i);
+                linkedItemList.addFirst(itemHolder);
+            }
+        }
+    }
+    public void sortListbyPriority(String priority) {
+        int length = linkedItemList.size();
+        testItem itemHolder;
+        for (int i = 0; i < length; i++)  {
+            if (linkedItemList.get(i).getDueDate().equalsIgnoreCase(priority)) {
+                itemHolder = linkedItemList.get(i);
+                linkedItemList.remove(i);
+                linkedItemList.addFirst(itemHolder);
+            }
+        }
+    }
+    public void sortListbyLabels(String label) {
+        int length = linkedItemList.size();
+        testItem itemHolder;
+        for (int i = 0; i < length; i++)  {
+            if (linkedItemList.get(i).getDueDate().equalsIgnoreCase(label)) {
+                itemHolder = linkedItemList.get(i);
+                linkedItemList.remove(i);
+                linkedItemList.addFirst(itemHolder);
+            }
+        }
+    }
     public void showCompletedTasks() {  }
     public void removeItemList() {  }
 

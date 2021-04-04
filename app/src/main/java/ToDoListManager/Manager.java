@@ -1,4 +1,11 @@
 package ToDoListManager;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
 
 public class Manager {
     public User[] users;
@@ -17,9 +24,15 @@ public class Manager {
         return newUsers;
     }
     //function to register new user
-    public void registerUser(String username, String password, String firstName, String lastName){
+    public void registerUser(String username, String password, String firstName, String lastName) throws IOException {
         User newUser =  new User(username, password, firstName, lastName);
         users = addUser(users, newUser);
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        FileWriter writer = new FileWriter("userInfo/users");
+        writer.write(gson.toJson(users));
+        writer.close();
+
     }
 
     //code that runs win the user press login
@@ -35,7 +48,7 @@ public class Manager {
             //code to Login as admin
         }
     }
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Manager manager = new Manager();
         manager.registerUser("stougarr", "password", "Garrett", "Stouffer");
     }

@@ -4,10 +4,14 @@ public class Task extends Item {
     private String dueDate;
     private String priority;
     private String[] labels;
-    private itemList parentProject;
+    private transient itemList parentProject;
     private boolean isOverdue;
     private boolean isCompleted;
 
+    Task(String t, String d) {
+        super(t, d);
+    }
+/*
     public Task(String title, String description, String[] labels){
         super(title, description);
         this.labels = labels;
@@ -51,5 +55,7 @@ public class Task extends Item {
     public void setisCompleted(Boolean){
         this.setisCompleted = Complete;
     }
+    */
+
 }
 
