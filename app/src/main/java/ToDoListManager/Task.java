@@ -8,6 +8,10 @@ public class Task extends Item {
     private boolean isOverdue;
     private boolean isCompleted;
 
+    Task(String t, String d) {
+        super(t, d);
+    }
+/*
     public Task(String title, String description, String[] labels){
         super(title, description);
         this.labels = labels;
@@ -51,5 +55,7 @@ public class Task extends Item {
     public void setisCompleted(Boolean){
         this.setisCompleted = Complete;
     }
+    */
+
 }
 

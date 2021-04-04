@@ -1,7 +1,10 @@
 package ToDoListManager;
 
-public class subTask extends Task {
-
+public class SubTask extends Task {
+    SubTask(String t, String d) {
+        super(t, d);
+    }
+/*
     private parentTask;
 
     protected subTask(string title, String description, Task parentTask) {
@@ -23,5 +26,5 @@ public class subTask extends Task {
                 +" linkedItem " + linkedItem.toString() +"\n" +
                 " Parent " + parent.getTitle() + "]";
     }
-
+*/
 }
