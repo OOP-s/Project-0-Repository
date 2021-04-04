@@ -1,5 +1,7 @@
 package ToDoListManager;
 
+import java.io.IOException;
+
 public class subProject extends Project {
 // The subproject's parent is a project, this stops sub projects from having subprojects
     private Project parent;
@@ -15,6 +17,17 @@ public class subProject extends Project {
 // Get-er and Set-er for parent projects
     public Project getParentProject() { return parent; }
     public void setParentProject(Project project) { parent = project; }
+
+    public void convertSubProject() throws IOException {
+        Project project = newProject(this.getUser(), this.getTitle(), this.getDescription());
+        testItem itemHolder;
+        int length = linkedItemList.size();
+        for (int i = 0; i < length; i++) {
+            itemHolder = linkedItemList.get(i);
+            linkedItemList.remove(i);
+            linkedItemList.addFirst(itemHolder);
+        }
+    }
 
     public String toString() {
         return "Subproject [ Title: "+getTitle()+", Description: "+ getDescription() +"\n"
