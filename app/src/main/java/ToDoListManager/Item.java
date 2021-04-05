@@ -31,6 +31,9 @@ public abstract class Item {
     public static String getPriority() { return priority; }
     public static List<String> getLabels() { return labels; }
 
+    public void setDueDate(LocalDate time) {
+        dueDate = time;
+    }
 
     public static Project getProject() { return project; }
     public static subProject getSubProject() { return subProject; }
