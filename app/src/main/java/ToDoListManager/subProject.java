@@ -20,6 +20,7 @@ public class subProject extends Project {
     public void setParentProject(Project project) throws IOException {
         parent = project;
         fileRead.writeJSONSub(this, project.getUser(), this.getTitle());
+        Files.deleteIfExists(Paths.get("DataFiles/Users/"+this.getUser().getUsername()+"/SubProjects/" + this.getTitle()));
     }
 // This methods changes a subProject to a Project
     public void convertSubProject() throws IOException {
