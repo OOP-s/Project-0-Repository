@@ -22,7 +22,7 @@ public class fileRead {
         return gson.fromJson(bufferedReader, subProject.class);
     }
     // Reads all of the users in the UserInfo folder and then returns a manager instance (which should have the ArrayList that contains all of the users
-    public Manager userFileReader() throws IOException {
+    public static Manager userFileReader() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("userInfo/Users"));
         return gson.fromJson(bufferedReader, Manager.class);
     }

@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/userInfo/Users" afterDir="false" />
+    <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="Changes">
       <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/fileRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/fileRead.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -334,7 +334,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617538636943</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Changes">
+      <created>1617583209777</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1617583209777</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -369,7 +376,8 @@
     <MESSAGE value="Worked on add item methods" />
     <MESSAGE value="Finished the addItem methods in the abstract itemList class" />
     <MESSAGE value="Finished the abstract itemList class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finished the abstract itemList class" />
+    <MESSAGE value="Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
