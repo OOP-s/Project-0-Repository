@@ -1,30 +1,31 @@
 package ToDoListManager;
 
+import java.io.IOException;
+import java.time.LocalDate;
+
 public class SubTask extends Task {
-    SubTask(String t, String d) {
-        super(t, d);
-    }
-/*
-    private parentTask;
 
-    protected subTask(string title, String description, Task parentTask) {
-        super(title, description);
-        parent = parentTask;
+    private static Task parentTask;
+    protected SubTask(String t, String d, Project pro, LocalDate due, String pri, Task Parent) {
+        super(t,d,pro,due,pri);
+        parentTask = Parent;
     }
 
-    public subTask newsubTask(String title, String description, Project parentTask) {
-        return new subTask(title,description,parentProject);
+    public SubTask newSubTask(String t, String d, Project pro, LocalDate due, String pri, Task Parent) throws IOException {
+        SubTask subtask = new SubTask(t,d,pro,due,pri,Parent);
+        subtask.getProject().addItem(subtask,Task.getProject());
+        return subtask;
     }
 
-    public Task getparentTask() {
-        return parent;
+
+    public Task getParentTask() {
+        return parentTask;
     }
-    public void setparentTask(Task task) { parent = task; }
+    public void setParentTask(Task task) { parentTask = task; }
 
     public String toString() {
-        return "subTask [ Title: "+getTitle()+", Description: "+ getDescription() +"\n"
-                +" linkedItem " + linkedItem.toString() +"\n" +
-                " Parent " + parent.getTitle() + "]";
+        return "subTask [ Title: "+getTitle()+", Description: "+ getDescription() +"\n" +
+                " Parent " + parentTask.getTitle() + "]";
     }
-*/
+
 }

@@ -12,8 +12,11 @@ public class subProject extends Project {
         parent = parentProject;
     }
 // Public method that creates and returns a new subproject
-    public subProject newSubProject(String title, String description, Project parentProject) {
-        return new subProject(title,description,parentProject);
+    public subProject newSubProject(String title, String description, Project parentProject) throws IOException {
+        subProject newS = new subProject(title,description,parentProject);
+        fileRead.writeJSONSub(newS, newS.getUser(), newS.getTitle());
+        parentProject.addSubProject(newS);
+        return newS;
     }
 // Get-er and Set-er for parent projects
     public Project getParentProject() { return parent; }
@@ -25,7 +28,7 @@ public class subProject extends Project {
 // This methods changes a subProject to a Project
     public void convertSubProject() throws IOException {
         Project project = newProject(this.getUser(), this.getTitle(), this.getDescription());
-        testItem itemHolder;
+        Item itemHolder;
         int length = this.linkedItemList.size();
         for (int i = 0; i < length; i++) {
             itemHolder = this.linkedItemList.get(i);

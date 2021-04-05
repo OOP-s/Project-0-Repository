@@ -1,42 +1,24 @@
 package ToDoListManager;
+import java.io.IOException;
+import java.time.LocalDate;
 
 public class Task extends Item {
-    private String priority;
-    private String[] labels;
-    private String description;
-    private transient itemList parentProject;
-    private String getTitle;
 
-    Task(String t, String d) {
-        super(t, d);
+    protected Task(String t, String d, Project pro, LocalDate due, String pri) {
+        super(t,d,pro,due,pri);
     }
 
-    public Task(String title, String description, String[] labels){
-        super(title, description);
-        this.labels = labels;
-    }
-    /*
-    public Task(String description, itemList parentProject){
-        this.description = description;
-    }
-    public Task(String title, String dueDate, String priority){
-        this.priority = priority;
+    public Task newTask(String t, String d, Project pro, LocalDate due, String pri) throws IOException {
+        Task task = new Task(t,d,pro,due,pri);
+        task.getProject().addItem(task,Task.getProject());
+        return task;
     }
 
-    public Task() {
+
+    public String toString() {
+        return "\n Task [ title: "+title+", description: "+ description+
+                "\n"+ "due date: " +dueDate + "priority: " +priority + "labels: "+ labels + " ]";
     }
 
-    public String getDescription() {
-        return description;
-    }
-    public String[]  getLabel() {
-        return labels;
-    }
-
-    public void setPriority(String Priority){
-        this.priority = Priority;
-    }
-
-*/
 }
 
