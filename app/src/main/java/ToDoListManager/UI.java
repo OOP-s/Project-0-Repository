@@ -37,7 +37,6 @@ public class UI extends Application{
 
     @Override
     public void start(Stage stage) throws FileNotFoundException {
-        Admin admin = new Admin();
         Image image1 = new Image(new FileInputStream("userInfo/oop-s-splashscreen.png"));
         Stage registerStage = new Stage();
         Stage adminStage = new Stage();
@@ -72,9 +71,9 @@ public class UI extends Application{
 
         //admin page items
         TableView<UserTemplate> userTable = new TableView<>();
-        final ObservableList<UserTemplate> userArrayList = FXCollections.observableArrayList(users);
-        final ObservableList<UserTemplate> adminArrayList = FXCollections.observableArrayList(admin);
-        final ObservableList<UserTemplate> data = concat(userArrayList, adminArrayList);
+        final ObservableList<UserTemplate> userArrayList = FXCollections.observableArrayList(Manager.getUsers());
+        final ObservableList<UserTemplate> adminArrayList = FXCollections.observableArrayList(Manager.getAdmin());
+        final ObservableList<UserTemplate> data = FXCollections.concat(userArrayList, adminArrayList);
         userTable.setEditable(true);
 
         var nameCol = new TableColumn("Name");
@@ -238,7 +237,7 @@ public class UI extends Application{
 
         reg.setOnAction(value -> { // this button is on the register screen
             try {
-                registerUser(username.getText(), newPasswordField.getText(), firstName.getText(), lastName.getText());
+                Manager.registerUser(username.getText(), newPasswordField.getText(), firstName.getText(), lastName.getText(), biography.getText());
             } catch (IOException e) {
                 e.printStackTrace();
             }

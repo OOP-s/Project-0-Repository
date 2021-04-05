@@ -12,13 +12,17 @@ public class Manager {
     public static ArrayList<User> users = new ArrayList<User>();
     public static Admin admin = new Admin();
 
+    public static ArrayList<User> getUsers(){return users;}
+    public void setUsers(ArrayList<User> userSet){users = userSet;}
+    public static Admin getAdmin(){return admin;}
+
     //method to register user.
     public static void registerUser(String username, String password, String firstName, String lastName, String biography) throws IOException {
         Manager manager = new Manager();
         //code to read all users from gson file into the ArrayList.
-        manager.users = returnUsers();
+        manager.setUsers(returnUsers());
         User newUser = new User(username, password, firstName, lastName, biography);
-        manager.users.add(newUser);
+        manager.getUsers().add(newUser);
         //code to write all users into a gson file.
 
         GsonBuilder builder = new GsonBuilder();
@@ -46,7 +50,6 @@ public class Manager {
         fileRead.writeJSON(Overdue,newUser,"Overdue");
         fileRead.writeJSON(Today,newUser,"Today");
         fileRead.writeJSON(Completed,newUser,"Completed");
-
     }
 
     //method for logging in as a user.
