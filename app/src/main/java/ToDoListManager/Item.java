@@ -51,4 +51,10 @@ public abstract class Item {
         Project.addItem(task, task.getProject());
         fileRead.writeJSON(task.getProject(), task.getProject().getUser(),task.getTitle());
     }
+    public static void removeLabel(String label, Task task) throws IOException {
+        labels.remove(label);
+        Project.removeItem(task);
+        Project.addItem(task, task.getProject());
+        fileRead.writeJSON(task.getProject(), task.getProject().getUser(),task.getTitle());
+    }
 }
