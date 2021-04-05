@@ -1,9 +1,15 @@
 package ToDoListManager;
 
+import java.time.LocalDate;
+
 public class SubTask extends Task {
-    SubTask(String t, String d) {
-        super(t, d);
+
+    protected SubTask(String t, String d, Project pro, LocalDate due, String pri) {
+        super(t,d,pro,due,pri);
     }
+
+
+
 /*
     private parentTask;
 

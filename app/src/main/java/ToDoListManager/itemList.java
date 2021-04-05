@@ -14,7 +14,7 @@ public abstract class itemList {
     private static User user;
 
 // This linked list is going to be the actual data structure that holds the items
-    protected LinkedList<testItem> linkedItemList = new LinkedList<testItem>();
+    protected LinkedList<Item> linkedItemList = new LinkedList<Item>();
 
 // Abstract constructor
     protected itemList(String t, String d) {
@@ -31,7 +31,7 @@ public abstract class itemList {
     public void setDescription(String newDescription) { description = newDescription; }
 
 // This add item method adds the inputted item into the linked list at the end
-    public void addItem(testItem item, Project project) throws IOException {
+    public void addItem(Item item, Project project) throws IOException {
         // Creates a temporary project and reads the projects file to it
         Project newFile = fileRead.projectFileReader(item.getProject().getUser(), item.getProject().getTitle());
         // Adds the new item to the temp project
@@ -58,7 +58,7 @@ public abstract class itemList {
             fileRead.writeJSON(Today, item.getProject().getUser(),"Today");
         }
     }
-    public void addItem(testItem item, subProject subproject) throws IOException {
+    public void addItem(Item item, subProject subproject) throws IOException {
         // All comments for the first addItem method work here except its for subProjects
         subProject newFile = (subProject) fileRead.subProjectFileReader(item.getSubProject().getUser(), item.getSubProject().getTitle());
         newFile.linkedItemList.add(item);
@@ -83,7 +83,7 @@ public abstract class itemList {
     }
 
 // Remove item searches for the first instance of the inputted item and removes it
-    public void removeItem(testItem item) throws IOException {
+    public void removeItem(Item item) throws IOException {
         linkedItemList.remove(item);
         fileRead.writeJSON(item.getProject(), item.getProject().getUser(),item.getProject().getTitle());
         // This checks to see if the item was in any of the default lists and removes it
@@ -107,7 +107,7 @@ public abstract class itemList {
 // The sort methods iterate through the list, then find matches and move them to the front of the list
     public void sortListByDueDate(LocalDate date) {
         int length = linkedItemList.size();
-        testItem itemHolder;
+        Item itemHolder;
         for (int i = 0; i < length; i++)  {
             if (linkedItemList.get(i).getDueDate() == date) {
                 itemHolder = linkedItemList.get(i);
@@ -118,7 +118,7 @@ public abstract class itemList {
     }
     public void sortListByPriority(String priority) {
         int length = linkedItemList.size();
-        testItem itemHolder;
+        Item itemHolder;
         for (int i = 0; i < length; i++)  {
             if (linkedItemList.get(i).getPriority().equalsIgnoreCase(priority)) {
                 itemHolder = linkedItemList.get(i);
@@ -129,7 +129,7 @@ public abstract class itemList {
     }
     public void sortListByLabels(String label) {
         int length = linkedItemList.size();
-        testItem itemHolder;
+        Item itemHolder;
         for (int i = 0; i < length; i++)  {
             if (Arrays.toString(linkedItemList.get(i).getLabels()).equalsIgnoreCase(label)) {
                 itemHolder = linkedItemList.get(i);
@@ -144,7 +144,7 @@ public abstract class itemList {
         int length = Completed.linkedItemList.size();
         for (int i =0; i < length; i++ ) {
             if ( Completed.linkedItemList.get(i).getProject() == project ) {
-                testItem item = Completed.linkedItemList.get(i);
+                Item item = Completed.linkedItemList.get(i);
                 addItem(item,project);
                 Completed.linkedItemList.remove(i);
                 fileRead.writeJSON(Completed, project.getUser(), "Completed");

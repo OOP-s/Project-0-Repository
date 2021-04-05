@@ -61,7 +61,7 @@ public class Manager {
 
     public ArrayList<User> returnUsers() throws IOException {
         Manager manager = fileRead.userFileReader();
-
+        return manager.users;
 
     }
 

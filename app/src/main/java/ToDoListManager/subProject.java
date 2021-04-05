@@ -25,7 +25,7 @@ public class subProject extends Project {
 // This methods changes a subProject to a Project
     public void convertSubProject() throws IOException {
         Project project = newProject(this.getUser(), this.getTitle(), this.getDescription());
-        testItem itemHolder;
+        Item itemHolder;
         int length = this.linkedItemList.size();
         for (int i = 0; i < length; i++) {
             itemHolder = this.linkedItemList.get(i);
