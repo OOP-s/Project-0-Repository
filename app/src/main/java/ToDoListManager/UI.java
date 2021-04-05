@@ -28,7 +28,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import static ToDoListManager.Manager.*;
-import static javafx.collections.FXCollections.*;
+import static javafx.collections.FXCollections.concat;
 
 public class UI extends Application{
     public static void main(String[] args) {
@@ -36,7 +36,7 @@ public class UI extends Application{
     }
 
     @Override
-    public void start(Stage stage) throws InterruptedException, FileNotFoundException {
+    public void start(Stage stage) throws FileNotFoundException {
         Admin admin = new Admin();
         Image image1 = new Image(new FileInputStream("userInfo/oop-s-splashscreen.png"));
         Stage registerStage = new Stage();
@@ -72,12 +72,12 @@ public class UI extends Application{
 
         //admin page items
         TableView<UserTemplate> userTable = new TableView<>();
-        final ObservableList<UserTemplate> userArrayList = observableArrayList(users);
-        final ObservableList<UserTemplate> adminArrayList = observableArrayList(admin);
+        final ObservableList<UserTemplate> userArrayList = FXCollections.observableArrayList(users);
+        final ObservableList<UserTemplate> adminArrayList = FXCollections.observableArrayList(admin);
         final ObservableList<UserTemplate> data = concat(userArrayList, adminArrayList);
         userTable.setEditable(true);
 
-        TableColumn nameCol = new TableColumn("Name");
+        var nameCol = new TableColumn("Name");
         nameCol.setMinWidth(120);
         nameCol.setCellValueFactory(
                 new PropertyValueFactory<UserTemplate, String>("firstname+lastname"));
@@ -114,6 +114,7 @@ public class UI extends Application{
         //main page items
         TextField mainSearch = new TextField();
         mainSearch.setPromptText("Search here");
+        Button search = new Button("Search");
         Button addListButton = new Button("Add List");
         Button addSublistButton = new Button("Add Sublist");
         Button addTaskButton = new Button("Add Button");
@@ -129,6 +130,16 @@ public class UI extends Application{
 
         Tab tab5 = new Tab("Subproject 1", new Label("Here you would put some tasks"));
         Tab tab6 = new Tab("Subproject2", new Label("Here are some more tasks"));
+
+        //CheckBox taskCheck1 = new CheckBox(task.getTitle());
+        //String labels = "";
+        //for (String label:task.getLabelList()){
+        //    labels.concat(label);
+        //}
+        //Label taskLabel1 = new Label(labels);
+        //for (String subtask:task.getSubtaskList(){
+        //    structure.add(new CheckBox(subtask.getTitle()));
+        //}
 
         listTabs.getTabs().add(tab1);
         listTabs.getTabs().add(tab2);
@@ -155,13 +166,13 @@ public class UI extends Application{
         gridPane.add(loginField2,1,1);
         gridPane.add(register,0,2);
         gridPane.add(login, 1,2);
-        gridPane.add(error1,2,2);
+        gridPane.add(error1,0,3);
         error1.setVisible(false);
 
 
         // register pane
         GridPane registerPane = new GridPane();
-        registerPane.setMinSize(400,300);
+        registerPane.setMinSize(200,300);
         registerPane.setPadding(new Insets(10, 10, 10, 10));
         registerPane.setVgap(5);
         registerPane.setHgap(5);
@@ -193,7 +204,7 @@ public class UI extends Application{
         adminPane.add(logoutButton1,3,10);
 
         //main Pane
-        HBox hbox = new HBox(mainSearch,addListButton,addSublistButton,addTaskButton,addSubtask,logoutButton2);
+        HBox hbox = new HBox(mainSearch, search, addListButton,addSublistButton,addTaskButton,addSubtask,logoutButton2);
         VBox vbox = new VBox(listTabs,hbox);
 
 
@@ -217,10 +228,10 @@ public class UI extends Application{
         });
 
         pic.setOnAction(value -> {  // this button is on the register screen
-            // File file = fileChooser.showOpenDialog(stage);
-            // if (file != null) {
-            //     openFile(file);
-            // }
+            //File file = fileChooser.showOpenDialog(stage);
+            //if (file != null) {
+            //    openFile(file);
+            //}
 
             System.out.print("This feature will be replaced soon!");
         });
@@ -283,6 +294,4 @@ public class UI extends Application{
         });
         wait.play();
     }
-
-
 }
