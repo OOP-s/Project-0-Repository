@@ -15,7 +15,7 @@ public class Task extends Item {
         super(title, description);
         this.labels = labels;
     }
-    public Task(String description, itemList parentProject){
+    /*public Task(String description, itemList parentProject){
         this.description = description;
     }
     public Task(String title, String dueDate, String priority){
@@ -24,7 +24,7 @@ public class Task extends Item {
 
     public Task() {
     }
-
+*/
     public String getDescription() {
         return description;
     }
