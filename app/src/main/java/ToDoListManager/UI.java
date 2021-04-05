@@ -15,6 +15,8 @@ import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -26,7 +28,7 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import static ToDoListManager.Manager.*;
-import static javafx.collections.FXCollections.*;
+import static javafx.collections.FXCollections.concat;
 
 public class UI extends Application{
     public static void main(String[] args) {
@@ -34,7 +36,7 @@ public class UI extends Application{
     }
 
     @Override
-    public void start(Stage stage) throws InterruptedException, FileNotFoundException {
+    public void start(Stage stage) throws FileNotFoundException {
         Admin admin = new Admin();
         Image image1 = new Image(new FileInputStream("userInfo/oop-s-splashscreen.png"));
         Stage registerStage = new Stage();
@@ -70,12 +72,12 @@ public class UI extends Application{
 
         //admin page items
         TableView<UserTemplate> userTable = new TableView<>();
-        final ObservableList<UserTemplate> userArrayList = observableArrayList(users);
-        final ObservableList<UserTemplate> adminArrayList = observableArrayList(admin);
+        final ObservableList<UserTemplate> userArrayList = FXCollections.observableArrayList(users);
+        final ObservableList<UserTemplate> adminArrayList = FXCollections.observableArrayList(admin);
         final ObservableList<UserTemplate> data = concat(userArrayList, adminArrayList);
         userTable.setEditable(true);
 
-        TableColumn nameCol = new TableColumn("Name");
+        var nameCol = new TableColumn("Name");
         nameCol.setMinWidth(120);
         nameCol.setCellValueFactory(
                 new PropertyValueFactory<UserTemplate, String>("firstname+lastname"));
@@ -112,22 +114,43 @@ public class UI extends Application{
         //main page items
         TextField mainSearch = new TextField();
         mainSearch.setPromptText("Search here");
+        Button search = new Button("Search");
         Button addListButton = new Button("Add List");
         Button addSublistButton = new Button("Add Sublist");
         Button addTaskButton = new Button("Add Button");
         Button addSubtask = new Button("Add Subtask");
         Button logoutButton2 = new Button("Logout");
         TabPane listTabs = new TabPane();
+        TabPane sublistTab1 = new TabPane();
 
         Tab tab1 = new Tab("Completed", new Label("Show all completed tasks"));
         Tab tab2 = new Tab("Upcoming"  , new Label("Show all Upcoming tasks"));
         Tab tab3 = new Tab("Overdue" , new Label("Show all overdue tasks"));
-        Tab tab4 = new Tab("Today", new Label("Show all of today's tasks"));
+        Tab tab4 = new Tab("Today", sublistTab1);
+
+        Tab tab5 = new Tab("Subproject 1", new Label("Here you would put some tasks"));
+        Tab tab6 = new Tab("Subproject2", new Label("Here are some more tasks"));
+
+        //CheckBox taskCheck1 = new CheckBox(task.getTitle());
+        //String labels = "";
+        //for (String label:task.getLabelList()){
+        //    labels.concat(label);
+        //}
+        //Label taskLabel1 = new Label(labels);
+        //for (String subtask:task.getSubtaskList(){
+        //    structure.add(new CheckBox(subtask.getTitle()));
+        //}
 
         listTabs.getTabs().add(tab1);
         listTabs.getTabs().add(tab2);
         listTabs.getTabs().add(tab3);
         listTabs.getTabs().add(tab4);
+        sublistTab1.getTabs().add(tab5);
+        sublistTab1.getTabs().add(tab6);
+
+        //for(String project:user.getLinkedList()){
+        //    listTabs.getTabs().add(new Tab(project.getTitle(), new TabPane().getTabs().add(new Tab(project.getSubproject().getTitle(), "tasks"))));
+        //}
 
 
         // log in pane
@@ -143,13 +166,13 @@ public class UI extends Application{
         gridPane.add(loginField2,1,1);
         gridPane.add(register,0,2);
         gridPane.add(login, 1,2);
-        gridPane.add(error1,2,2);
+        gridPane.add(error1,0,3);
         error1.setVisible(false);
 
 
         // register pane
         GridPane registerPane = new GridPane();
-        registerPane.setMinSize(400,300);
+        registerPane.setMinSize(200,300);
         registerPane.setPadding(new Insets(10, 10, 10, 10));
         registerPane.setVgap(5);
         registerPane.setHgap(5);
@@ -181,20 +204,8 @@ public class UI extends Application{
         adminPane.add(logoutButton1,3,10);
 
         //main Pane
-        GridPane mainPane = new GridPane();
-        mainPane.setMinSize(650,600);
-        mainPane.setPadding(new Insets(10, 10, 10, 10));
-        mainPane.setVgap(5);
-        mainPane.setHgap(5);
-        mainPane.setAlignment(Pos.CENTER);
-        mainPane.add(listTabs,0,0,6,10);
-        mainPane.add(mainSearch, 0, 10);
-        mainPane.add(addListButton,1,10);
-        mainPane.add(addSublistButton,2,10);
-        mainPane.add(addTaskButton,3,10);
-        mainPane.add(addSubtask,4,10);
-        mainPane.add(logoutButton2,5,10);
-
+        HBox hbox = new HBox(mainSearch, search, addListButton,addSublistButton,addTaskButton,addSubtask,logoutButton2);
+        VBox vbox = new VBox(listTabs,hbox);
 
 
         // Scenes
@@ -207,7 +218,7 @@ public class UI extends Application{
         Scene loginScreen = new Scene(gridPane);
         Scene registerScreen = new Scene(registerPane);
         Scene adminScreen = new Scene(adminPane);
-        Scene mainScreen = new Scene(mainPane);
+        Scene mainScreen = new Scene(vbox);
 
         //button actions
 
@@ -217,10 +228,10 @@ public class UI extends Application{
         });
 
         pic.setOnAction(value -> {  // this button is on the register screen
-            // File file = fileChooser.showOpenDialog(stage);
-            // if (file != null) {
-            //     openFile(file);
-            // }
+            //File file = fileChooser.showOpenDialog(stage);
+            //if (file != null) {
+            //    openFile(file);
+            //}
 
             System.out.print("This feature will be replaced soon!");
         });
@@ -283,6 +294,4 @@ public class UI extends Application{
         });
         wait.play();
     }
-
-
 }
