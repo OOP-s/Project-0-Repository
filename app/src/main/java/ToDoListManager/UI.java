@@ -25,9 +25,11 @@ import javafx.util.Duration;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static ToDoListManager.Manager.*;
+import static ToDoListManager.fileRead.userFileReader;
 import static javafx.collections.FXCollections.concat;
 
 public class UI extends Application{
@@ -36,7 +38,7 @@ public class UI extends Application{
     }
 
     @Override
-    public void start(Stage stage) throws FileNotFoundException {
+    public void start(Stage stage) throws IOException {
         Image image1 = new Image(new FileInputStream("userInfo/oop-s-splashscreen.png"));
         Stage registerStage = new Stage();
         Stage adminStage = new Stage();
@@ -71,7 +73,11 @@ public class UI extends Application{
 
         //admin page items
         TableView<UserTemplate> userTable = new TableView<>();
-        final ObservableList<UserTemplate> userArrayList = FXCollections.observableArrayList(Manager.getUsers());
+
+        //for (User user:returnUsers()) {userList.add(user)
+
+        //}
+        final ObservableList<UserTemplate> userArrayList = FXCollections.observableArrayList(returnUsers());
         final ObservableList<UserTemplate> adminArrayList = FXCollections.observableArrayList(Manager.getAdmin());
         final ObservableList<UserTemplate> data = FXCollections.concat(userArrayList, adminArrayList);
         userTable.setEditable(true);
