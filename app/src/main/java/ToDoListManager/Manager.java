@@ -13,11 +13,11 @@ public class Manager {
     public static Admin admin = new Admin();
 
     //method to register user.
-    public static void registerUser(String username, String password, String firstName, String lastName) throws IOException {
+    public static void registerUser(String username, String password, String firstName, String lastName, String biography) throws IOException {
         Manager manager = new Manager();
         //code to read all users from gson file into the ArrayList.
         manager.users = returnUsers();
-        User newUser = new User(username, password, firstName, lastName);
+        User newUser = new User(username, password, firstName, lastName, biography);
         manager.users.add(newUser);
         //code to write all users into a gson file.
 

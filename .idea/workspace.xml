@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Project.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/subProject.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/subProject.java" afterDir="false" />
+    <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="fixed the adding a folder to the manager class">
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Manager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/UI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
