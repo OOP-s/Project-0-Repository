@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0563b7d-b482-4670-b46c-23dab53e427f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/ToDoListManager.app.test.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/ToDoListManager.app.test.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Project-0-Repository.wiki" beforeDir="false" afterPath="$PROJECT_DIR$/Project-0-Repository.wiki" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +46,7 @@
     <option name="BRANCH" value="master" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_COMMON_BRANCH" value="master" />
+    <option name="RECENT_COMMON_BRANCH" value="develop" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
