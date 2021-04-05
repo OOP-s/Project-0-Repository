@@ -4,6 +4,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,12 +37,15 @@ public class Manager {
         Project Today = Project.newProject(newUser,"Today","Tasks Due Today");
         Project Overdue = Project.newProject(newUser,"Overdue","Overdue Tasks");
         Project Completed = Project.newProject(newUser,"Completed","Completed Tasks");
+
+        Path path = Paths.get("DataFiles/Users/" + username + "/");
+        Files.createDirectory(path);
+
         // Writing the default projects to file
         fileRead.writeJSON(Upcoming,newUser,"Upcoming");
         fileRead.writeJSON(Overdue,newUser,"Overdue");
         fileRead.writeJSON(Today,newUser,"Today");
         fileRead.writeJSON(Completed,newUser,"Completed");
-
 
     }
 
