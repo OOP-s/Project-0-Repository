@@ -37,7 +37,7 @@ public abstract class Item {
     public static void setDescription(String description) { description = description; }
 
     public String toString() {
-        return "\n testItem [ title: "+title+", description: "+ description+
+        return "\n Item [ title: "+title+", description: "+ description+
                 "\n"+ "due date: " +dueDate + "priority: " +priority + "labels: "+ labels + " ]";
     }
 }

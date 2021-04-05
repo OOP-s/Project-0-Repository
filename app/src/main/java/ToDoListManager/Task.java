@@ -14,5 +14,11 @@ public class Task extends Item {
         return task;
     }
 
+
+    public String toString() {
+        return "\n Task [ title: "+title+", description: "+ description+
+                "\n"+ "due date: " +dueDate + "priority: " +priority + "labels: "+ labels + " ]";
+    }
+
 }
 
