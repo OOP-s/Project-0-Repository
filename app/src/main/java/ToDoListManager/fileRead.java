@@ -33,9 +33,9 @@ public class fileRead {
         writer.close();
     }
     // Write a subproject to file
-    public static void writeJSON(subProject project,User user, String filename) throws IOException {
+    public static void writeJSONSub(subProject subproject,User user, String filename) throws IOException {
         FileWriter writer = new FileWriter("DataFiles/Users/"+user.getUsername()+"/SubProjects/"+filename);
-        writer.write(gson.toJson(project));
+        writer.write(gson.toJson(subproject));
         writer.close();
     }
 

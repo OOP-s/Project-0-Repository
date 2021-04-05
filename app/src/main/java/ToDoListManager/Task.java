@@ -15,6 +15,7 @@ public class Task extends Item {
         super(title, description);
         this.labels = labels;
     }
+    /*
     public Task(String description, itemList parentProject){
         this.description = description;
     }
@@ -36,6 +37,6 @@ public class Task extends Item {
         this.priority = Priority;
     }
 
-
+*/
 }
 

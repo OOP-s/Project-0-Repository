@@ -32,7 +32,7 @@ public abstract class itemList {
 
 // This add item method adds the inputted item into the linked list at the end
     public void addItem(testItem item, Project project) throws IOException {
-        // Creates a temporary project and reads the projects file
+        // Creates a temporary project and reads the projects file to it
         Project newFile = fileRead.projectFileReader(item.getProject().getUser(), item.getProject().getTitle());
         // Adds the new item to the temp project
         newFile.linkedItemList.add(item);
@@ -86,8 +86,8 @@ public abstract class itemList {
     public void removeItem(testItem item) throws IOException {
         linkedItemList.remove(item);
         fileRead.writeJSON(item.getProject(), item.getProject().getUser(),item.getProject().getTitle());
-        Project Overdue = fileRead.projectFileReader(item.getProject().getUser(), "Overdue");
         // This checks to see if the item was in any of the default lists and removes it
+        Project Overdue = fileRead.projectFileReader(item.getProject().getUser(), "Overdue");
         if (Overdue.linkedItemList.contains(item)) {
             Overdue.linkedItemList.remove(item);
             fileRead.writeJSON(Overdue, item.getProject().getUser(), "Overdue");

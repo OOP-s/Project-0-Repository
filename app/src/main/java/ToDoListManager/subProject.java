@@ -17,7 +17,10 @@ public class subProject extends Project {
     }
 // Get-er and Set-er for parent projects
     public Project getParentProject() { return parent; }
-    public void setParentProject(Project project) { parent = project; }
+    public void setParentProject(Project project) throws IOException {
+        parent = project;
+        fileRead.writeJSONSub(this, project.getUser(), this.getTitle());
+    }
 // This methods changes a subProject to a Project
     public void convertSubProject() throws IOException {
         Project project = newProject(this.getUser(), this.getTitle(), this.getDescription());
