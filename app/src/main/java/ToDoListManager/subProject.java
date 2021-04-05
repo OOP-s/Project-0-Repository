@@ -12,8 +12,11 @@ public class subProject extends Project {
         parent = parentProject;
     }
 // Public method that creates and returns a new subproject
-    public subProject newSubProject(String title, String description, Project parentProject) {
-        return new subProject(title,description,parentProject);
+    public subProject newSubProject(String title, String description, Project parentProject) throws IOException {
+        subProject newS = new subProject(title,description,parentProject);
+        fileRead.writeJSONSub(newS, newS.getUser(), newS.getTitle());
+        parentProject.addSubProject(newS);
+        return newS;
     }
 // Get-er and Set-er for parent projects
     public Project getParentProject() { return parent; }
