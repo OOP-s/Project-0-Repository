@@ -4,20 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="fixed the adding a folder to the manager class">
-      <change afterPath="$PROJECT_DIR$/DataFiles/Users/steajosh/Completed" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataFiles/Users/steajosh/Overdue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataFiles/Users/steajosh/Today" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataFiles/Users/steajosh/Upcoming" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataFiles/Users/steajosh@isu.edu/Completed" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataFiles/Users/steajosh@isu.edu/Overdue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataFiles/Users/steajosh@isu.edu/Today" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataFiles/Users/steajosh@isu.edu/Upcoming" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="added biography to registerUser">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/UI.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/UI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Task.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +80,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../IdeaProjects/SCData_Struct_Alg_Spr_2020/src/FinalProject" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
@@ -390,7 +380,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617591628761</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="added biography to registerUser">
+      <created>1617592763599</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1617592763599</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -429,7 +426,8 @@
     <MESSAGE value="Changed the setParent method in subProject" />
     <MESSAGE value="Worked on Item, Task, and SubTask" />
     <MESSAGE value="Added add label method in abstract Item class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added add label method in abstract Item class" />
+    <MESSAGE value="added biography to registerUser" />
+    <option name="LAST_COMMIT_MESSAGE" value="added biography to registerUser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
