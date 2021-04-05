@@ -22,7 +22,7 @@ public class fileRead {
         return gson.fromJson(bufferedReader, subProject.class);
     }
     // Reads all of the users in the UserInfo folder and then returns a manager instance (which should have the ArrayList that contains all of the users
-    public Manager userFileReader() throws IOException {
+    public static Manager userFileReader() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("userInfo/Users"));
         return gson.fromJson(bufferedReader, Manager.class);
     }
@@ -33,9 +33,9 @@ public class fileRead {
         writer.close();
     }
     // Write a subproject to file
-    public static void writeJSON(subProject project,User user, String filename) throws IOException {
+    public static void writeJSONSub(subProject subproject,User user, String filename) throws IOException {
         FileWriter writer = new FileWriter("DataFiles/Users/"+user.getUsername()+"/SubProjects/"+filename);
-        writer.write(gson.toJson(project));
+        writer.write(gson.toJson(subproject));
         writer.close();
     }
 

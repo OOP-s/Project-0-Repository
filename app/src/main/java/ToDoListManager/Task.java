@@ -15,15 +15,16 @@ public class Task extends Item {
         super(title, description);
         this.labels = labels;
     }
-    //public Task(String description, itemList parentProject){
-    //    this.description = description;
-    //}
-    //public Task(String title, String dueDate, String priority){
-    //    this.priority = priority;
-    //}
+    /*
+    public Task(String description, itemList parentProject){
+        this.description = description;
+    }
+    public Task(String title, String dueDate, String priority){
+        this.priority = priority;
+    }
 
-    //public Task() {
-    //}
+    public Task() {
+    }
 
     public String getDescription() {
         return description;
@@ -36,6 +37,6 @@ public class Task extends Item {
         this.priority = Priority;
     }
 
-
+*/
 }
 

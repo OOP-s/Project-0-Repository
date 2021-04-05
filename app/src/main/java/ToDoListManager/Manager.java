@@ -59,6 +59,12 @@ public class Manager {
         }
     }
 
+    public ArrayList<User> returnUsers() throws IOException {
+        Manager manager = fileRead.userFileReader();
+
+
+    }
+
     //public static void main(String[] args) throws IOException {
       //  Manager manager = new Manager();
        // manager.registerUser("stougarr", "passw0rd", "Garrett", "Stouffer");
