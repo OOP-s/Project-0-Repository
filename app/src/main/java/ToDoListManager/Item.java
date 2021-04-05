@@ -31,29 +31,24 @@ public abstract class Item {
     public static String getPriority() { return priority; }
     public static List<String> getLabels() { return labels; }
 
-    public static subProject getSubProject() { return subProject; }
-    public static void setSubProject(subProject subP) { subProject = subP; }
+
     public static Project getProject() { return project; }
+    public static subProject getSubProject() { return subProject; }
+    public static void setSubProject(subProject subP) { subProject = subP;}
     public static void setProject(Project project) { project = project; }
     public static void setTitle(String title) { title = title; }
     public static void setDescription(String description) { description = description; }
 
 
+
+    public String toString() {
+        return "\n Item [ title: "+title+", description: "+ description+
+                "\n"+ "due date: " +dueDate + "priority: " +priority + "labels: "+ labels + " ]";
+    }
     public static void addLabel(String label, Task task) throws IOException {
         labels.add(label);
         Project.removeItem(task);
         Project.addItem(task, task.getProject());
         fileRead.writeJSON(task.getProject(), task.getProject().getUser(),task.getTitle());
-    }
-    public static void addLabel(String label, SubTask subtask) throws IOException {
-        labels.add(label);
-        Project.removeItem(subtask);
-        Project.addItem(subtask, subtask.getProject());
-        fileRead.writeJSON(subtask.getProject(), subtask.getProject().getUser(),subtask.getTitle());
-    }
-
-    public String toString() {
-        return "\n Item [ title: "+title+", description: "+ description+
-                "\n"+ "due date: " +dueDate + "priority: " +priority + "labels: "+ labels + " ]";
     }
 }
