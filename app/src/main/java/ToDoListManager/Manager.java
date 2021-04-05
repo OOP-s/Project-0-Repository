@@ -22,7 +22,7 @@ public class Manager {
         //code to read all users from gson file into the ArrayList.
         manager.setUsers(returnUsers());
         User newUser = new User(username, password, firstName, lastName, biography);
-        manager.getUsers().add(newUser);
+        getUsers().add(newUser);
         //code to write all users into a gson file.
 
         GsonBuilder builder = new GsonBuilder();

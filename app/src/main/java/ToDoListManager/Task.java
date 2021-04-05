@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Task extends Item {
 
-    private Boolean isOverdue = false;
-    private Boolean isComplete = true;
+
+    private Boolean isComplete = false;
 
     protected Task(String t, String d, Project pro, LocalDate due, String pri) {
         super(t,d,pro,due,pri);
@@ -25,12 +25,10 @@ public class Task extends Item {
     }
 
     //getter methods
-    public Boolean getIsOverdue() { return isOverdue;}
     public Boolean getIsComplete() { return isComplete; }
 
 
     //setter methods
-    public void setIsOverdue(Boolean value){ isOverdue = value; }
     public void setIsComplete(Boolean value) { isComplete = value; }
 
 
