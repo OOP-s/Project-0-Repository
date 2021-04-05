@@ -13,6 +13,8 @@ public class Project extends itemList {
 
     protected static List<String> subProjectTitles;
 
+    public static List<String> getSubProjectTitles() { return subProjectTitles; }
+
     public static void addSubProject(subProject subProject) {
         subProjectTitles.add(subProject.getTitle());
     }
