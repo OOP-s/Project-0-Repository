@@ -1,15 +1,11 @@
 package ToDoListManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 
 
 public class Manager {
@@ -31,15 +27,19 @@ public class Manager {
         writer.write(gson.toJson(manager));
         writer.close();
 
-
+        try {
+            Path path = Paths.get("DataFiles/Users/" + username + "/");
+            Files.createDirectory(path);
+            System.out.println("Directory is Created");
+        } catch (IOException e) {
+            System.err.println("Failed to create a directory!" + e.getMessage());
+        }
         // Creating the default projects each user has
         Project Upcoming = Project.newProject(newUser,"Upcoming","Upcoming Tasks");
         Project Today = Project.newProject(newUser,"Today","Tasks Due Today");
         Project Overdue = Project.newProject(newUser,"Overdue","Overdue Tasks");
         Project Completed = Project.newProject(newUser,"Completed","Completed Tasks");
 
-        Path path = Paths.get("DataFiles/Users/" + username + "/");
-        Files.createDirectory(path);
 
         // Writing the default projects to file
         fileRead.writeJSON(Upcoming,newUser,"Upcoming");
@@ -74,12 +74,6 @@ public class Manager {
         return  manager.users;
     }
 
-    public static void main(String[] args) throws IOException {
-        Manager manager = new Manager();
-        manager.registerUser("stougarr", "passw0rd", "Garrett", "Stouffer");
-
-
-   }
 
 
 }
