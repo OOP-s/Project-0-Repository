@@ -1,4 +1,5 @@
 package ToDoListManager;
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -6,16 +7,23 @@ import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 
+import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import static ToDoListManager.Manager.*;
 import static javafx.collections.FXCollections.*;
@@ -26,10 +34,13 @@ public class UI extends Application{
     }
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws InterruptedException, FileNotFoundException {
         Admin admin = new Admin();
+        Image image1 = new Image(new FileInputStream("userInfo/oop-s-splashscreen.png"));
         Stage registerStage = new Stage();
         Stage adminStage = new Stage();
+        Stage splashStage = new Stage();
+        Stage mainStage = new Stage();
 
         // Login page items
         Text email = new Text("Email");
@@ -93,9 +104,30 @@ public class UI extends Application{
                 }
         );
 
+        Button logoutButton1 = new Button("Logout");
         Button searchButton = new Button("Search");
         TextField searchBar = new TextField();
         searchBar.setPromptText("Search here");
+
+        //main page items
+        TextField mainSearch = new TextField();
+        mainSearch.setPromptText("Search here");
+        Button addListButton = new Button("Add List");
+        Button addSublistButton = new Button("Add Sublist");
+        Button addTaskButton = new Button("Add Button");
+        Button addSubtask = new Button("Add Subtask");
+        Button logoutButton2 = new Button("Logout");
+        TabPane listTabs = new TabPane();
+
+        Tab tab1 = new Tab("Completed", new Label("Show all completed tasks"));
+        Tab tab2 = new Tab("Upcoming"  , new Label("Show all Upcoming tasks"));
+        Tab tab3 = new Tab("Overdue" , new Label("Show all overdue tasks"));
+        Tab tab4 = new Tab("Today", new Label("Show all of today's tasks"));
+
+        listTabs.getTabs().add(tab1);
+        listTabs.getTabs().add(tab2);
+        listTabs.getTabs().add(tab3);
+        listTabs.getTabs().add(tab4);
 
 
         // log in pane
@@ -143,15 +175,39 @@ public class UI extends Application{
         adminPane.setVgap(5);
         adminPane.setHgap(5);
         adminPane.setAlignment(Pos.CENTER);
-        adminPane.add(userTable,0 ,0,3,10);
+        adminPane.add(userTable,0 ,0,4,10);
         adminPane.add(searchButton,1,10);
         adminPane.add(searchBar,2,10);
+        adminPane.add(logoutButton1,3,10);
+
+        //main Pane
+        GridPane mainPane = new GridPane();
+        mainPane.setMinSize(650,600);
+        mainPane.setPadding(new Insets(10, 10, 10, 10));
+        mainPane.setVgap(5);
+        mainPane.setHgap(5);
+        mainPane.setAlignment(Pos.CENTER);
+        mainPane.add(listTabs,0,0,6,10);
+        mainPane.add(mainSearch, 0, 10);
+        mainPane.add(addListButton,1,10);
+        mainPane.add(addSublistButton,2,10);
+        mainPane.add(addTaskButton,3,10);
+        mainPane.add(addSubtask,4,10);
+        mainPane.add(logoutButton2,5,10);
+
 
 
         // Scenes
+        ImageView splashView = new ImageView(image1);
+        splashView.setFitHeight(600);
+        splashView.setFitWidth(650);
+        splashView.setPreserveRatio(true);
+        Group root = new Group(splashView);
+        Scene splashScreen = new Scene(root);
         Scene loginScreen = new Scene(gridPane);
         Scene registerScreen = new Scene(registerPane);
         Scene adminScreen = new Scene(adminPane);
+        Scene mainScreen = new Scene(mainPane);
 
         //button actions
 
@@ -179,11 +235,6 @@ public class UI extends Application{
         });
 
         login.setOnAction(value -> { // this button is on the login screen
-            System.out.println(loginUser(loginField1.getText(), loginField2.getText()));
-            System.out.println(loginField1.getText());
-            System.out.println(admin.getUsername());
-            System.out.println(admin.getPassword());
-            System.out.println(loginField2.getText());
             if(loginUser(loginField1.getText(), loginField2.getText()) == 2){
                 error1.setVisible(false);
                 stage.hide();
@@ -195,21 +246,42 @@ public class UI extends Application{
                 error1.setVisible(false);
                 stage.hide();
                 // next screen
+                mainStage.setScene(mainScreen);
+                mainStage.show();
             } else {
                 error1.setVisible(true);
+            }
                 loginField1.clear();
                 loginField2.clear();
-            }
+        });
+
+        logoutButton1.setOnAction(value -> { // This button is for the admin page
+            //save information somehow
+            adminStage.hide();
+            stage.show();
+        });
+
+        logoutButton2.setOnAction(value -> { // this button is for the main page
+            //save information somehow
+            mainStage.hide();
+            stage.show();
         });
 
         stage.setTitle("To Do List Manager");
         registerStage.setTitle("Register new user");
         adminStage.setTitle("Users");
+        mainStage.setTitle("To Do List Manager");
 
 
         stage.setScene(loginScreen);
-
-        stage.show();
+        splashStage.setScene(splashScreen);
+        splashStage.show();
+        PauseTransition wait = new PauseTransition(Duration.seconds(2));
+        wait.setOnFinished(value -> {
+            splashStage.hide();
+            stage.show();
+        });
+        wait.play();
     }
 
 
