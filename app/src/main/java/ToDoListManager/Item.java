@@ -1,6 +1,8 @@
 package ToDoListManager;
 
+import java.io.IOException;
 import java.time.LocalDate;
+import java.util.List;
 
 public abstract class Item {
     // Variables
@@ -10,7 +12,7 @@ public abstract class Item {
     protected static transient subProject subProject;
     protected static LocalDate dueDate;
     protected static String priority;
-    protected static String[] labels;
+    protected static List<String> labels;
 
     protected Item(String t, String d, Project pro, LocalDate due, String pri) {
         t = title;
@@ -27,7 +29,7 @@ public abstract class Item {
     }
     public static LocalDate getDueDate() { return dueDate; }
     public static String getPriority() { return priority; }
-    public static String[] getLabels() { return labels; }
+    public static List<String> getLabels() { return labels; }
 
     public static subProject getSubProject() { return subProject; }
     public static void setSubProject(subProject subP) { subProject = subP; }
@@ -35,6 +37,20 @@ public abstract class Item {
     public static void setProject(Project project) { project = project; }
     public static void setTitle(String title) { title = title; }
     public static void setDescription(String description) { description = description; }
+
+
+    public static void addLabel(String label, Task task) throws IOException {
+        labels.add(label);
+        Project.removeItem(task);
+        Project.addItem(task, task.getProject());
+        fileRead.writeJSON(task.getProject(), task.getProject().getUser(),task.getTitle());
+    }
+    public static void addLabel(String label, SubTask subtask) throws IOException {
+        labels.add(label);
+        Project.removeItem(subtask);
+        Project.addItem(subtask, subtask.getProject());
+        fileRead.writeJSON(subtask.getProject(), subtask.getProject().getUser(),subtask.getTitle());
+    }
 
     public String toString() {
         return "\n Item [ title: "+title+", description: "+ description+

@@ -1,6 +1,6 @@
 package ToDoListManager;
 import java.io.IOException;
-import java.util.Arrays;
+import java.util.List;
 import java.util.LinkedList;
 import java.nio.file.*;
 import java.time.LocalDate;
@@ -14,7 +14,7 @@ public abstract class itemList {
     private static User user;
 
 // This linked list is going to be the actual data structure that holds the items
-    protected LinkedList<Item> linkedItemList = new LinkedList<Item>();
+    protected static LinkedList<Item> linkedItemList = new LinkedList<Item>();
 
 // Abstract constructor
     protected itemList(String t, String d) {
@@ -31,7 +31,7 @@ public abstract class itemList {
     public void setDescription(String newDescription) { description = newDescription; }
 
 // This add item method adds the inputted item into the linked list at the end
-    public void addItem(Item item, Project project) throws IOException {
+    public static void addItem(Item item, Project project) throws IOException {
         // Creates a temporary project and reads the projects file to it
         Project newFile = fileRead.projectFileReader(item.getProject().getUser(), item.getProject().getTitle());
         // Adds the new item to the temp project
@@ -83,7 +83,7 @@ public abstract class itemList {
     }
 
 // Remove item searches for the first instance of the inputted item and removes it
-    public void removeItem(Item item) throws IOException {
+    public static void removeItem(Item item) throws IOException {
         linkedItemList.remove(item);
         fileRead.writeJSON(item.getProject(), item.getProject().getUser(),item.getProject().getTitle());
         // This checks to see if the item was in any of the default lists and removes it
@@ -130,8 +130,9 @@ public abstract class itemList {
     public void sortListByLabels(String label) {
         int length = linkedItemList.size();
         Item itemHolder;
-        for (int i = 0; i < length; i++)  {
-            if (Arrays.toString(linkedItemList.get(i).getLabels()).equalsIgnoreCase(label)) {
+        for (int i = 0; i < length; i++) {
+            List<String> labelHolder = linkedItemList.get(i).getLabels();
+            if (labelHolder.contains(label)) {
                 itemHolder = linkedItemList.get(i);
                 linkedItemList.remove(i);
                 linkedItemList.addFirst(itemHolder);
