@@ -1,12 +1,12 @@
 package ToDoListManager;
 import java.io.IOException;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Task extends Item {
 
 
-    private Boolean isComplete = false;
 
     protected Task(String t, String d, Project pro, LocalDate due, String pri) {
         super(t,d,pro,due,pri);
@@ -24,32 +24,41 @@ public class Task extends Item {
                 "\n"+ "due date: " +dueDate + "priority: " +priority + "labels: "+ labels + " ]";
     }
 
-    //getter methods
-    public Boolean getIsComplete() { return isComplete; }
 
 
-    //setter methods
-    public void setIsComplete(Boolean value) { isComplete = value; }
 
-
-    public void markComplete() {
-        setIsComplete(true);
+    public void markComplete(Task task) throws IOException {
+        //reads than rewrites the users completed list
+        Project completedList = fileRead.projectFileReader(task.project.getUser(), "Completed");
+        completedList.linkedItemList.add(task);
+        fileRead.writeJSON( completedList, completedList.getUser(), "Completed");
         //move task to complete list
     }
-    public Task duplicateTask(Task task){
+
+    public void duplicateTask(Task task)throws IOException {
         Task duplicateTask = task;
-        return duplicateTask;
+        //if (task is in subproject) {execute for subproject }
+        //else if task is only in a project
+        Project project = fileRead.projectFileReader(task.project.getUser(), task.project.getTitle());
+        project.linkedItemList.add(task);
     }
+
     //method for moving tasks from one list to another.
-    public void moveTask(Project newProject) {
-        setProject(newProject);
-    }
-    public void moveTask(subProject newSubProject) {
-        Project parentProject = newSubProject.getParentProject();
-        setProject(parentProject);
-        setSubProject(newSubProject);
+    public void moveTask(Task task, Project newProject) throws IOException {
+        //if task is not part of a subproject
+        //read tasks project
+        Project project = fileRead.projectFileReader(task.project.getUser(), task.project.getTitle());
+        //delete task from project and rewrite doc
+        project.linkedItemList.remove(task);
+        fileRead.writeJSON(project, project.getUser(), project.getTitle());
+        //set task newProject and write to new project
+        task.setProject(newProject);
+        fileRead.writeJSON(task.project, task.project.getUser(), task.project.getTitle());
     }
 
 
+    public static void main(String[] args) {
+
+    }
 }
 
