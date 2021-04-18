@@ -17,7 +17,7 @@ public class fileRead {
         return gson.fromJson(bufferedReader, Project.class);
     }
     // Reads and returns a subproject
-    public static Project subProjectFileReader(User user, String filename) throws IOException {
+    public static subProject subProjectFileReader(User user, String filename) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+user.getUsername()+"/SubProjects/"+filename));
         return gson.fromJson(bufferedReader, subProject.class);
     }
@@ -26,6 +26,7 @@ public class fileRead {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("userInfo/Users"));
         return gson.fromJson(bufferedReader, Manager.class);
     }
+
     // Write a project to file
     public static void writeJSON(Project project,User user, String filename) throws IOException {
         FileWriter writer = new FileWriter("DataFiles/Users/"+user.getUsername()+"/"+filename);

@@ -12,6 +12,8 @@ public class Manager {
     public static ArrayList<User> users = new ArrayList<User>();
     public static Admin admin = new Admin();
 
+
+    public Manager (){}
     public static ArrayList<User> getUsers(){return users;}
     public void setUsers(ArrayList<User> userSet){users = userSet;}
     public static Admin getAdmin(){return admin;}
