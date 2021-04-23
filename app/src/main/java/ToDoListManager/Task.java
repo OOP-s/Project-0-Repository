@@ -12,6 +12,7 @@ public class Task extends Item {
         super(t,d,pro,due,pri);
     }
 
+
     public Task newTask(String t, String d, Project pro, LocalDate due, String pri) throws IOException {
         Task task = new Task(t,d,pro,due,pri);
         task.getProject().addItem(task,Task.getProject());
