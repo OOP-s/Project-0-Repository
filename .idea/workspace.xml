@@ -4,24 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="Removed the isOverdue variable">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries-with-intellij-classes.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_2021_6_39_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_2021_6_39_PM__Default_Changelist_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_21,_10_57_AM_[Default_Changelist]1/checksums.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_21,_10_57_AM_[Default_Changelist]1/sha1-checksums.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_21,_10_57_AM_[Default_Changelist]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_21,_7_16_PM_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_21__10_57_AM__Default_Changelist_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_21__7_16_PM__Default_Changelist_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="added some constructors to task and item">
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_21,_10_57_AM_[Default_Changelist]/checksums.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_21,_10_57_AM_[Default_Changelist]/sha1-checksums.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_21,_10_57_AM_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_21__10_57_AM__Default_Changelist_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/SubTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/SubTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Task.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/fileRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/fileRead.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,12 +35,7 @@
       <state>
         <projects_view>
           <tree_state>
-            <expand>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="ToDoListManager" type="f1a62948:ProjectNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </tree_state>
         </projects_view>
@@ -415,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617597650955</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="added some constructors to task and item">
+      <created>1619309461932</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1619309461932</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -432,7 +428,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Messed around with reading and writing to Gson files (NOT FINAL)" />
     <MESSAGE value="Added a linked list to hold items in the abstract itemlist file" />
     <MESSAGE value="Fixed an error and added comments" />
     <MESSAGE value="changes" />
@@ -457,7 +452,8 @@
     <MESSAGE value="added biography to registerUser" />
     <MESSAGE value="Worked on change password in Admin" />
     <MESSAGE value="Added remove labels to item" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added remove labels to item" />
+    <MESSAGE value="added some constructors to task and item" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some constructors to task and item" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

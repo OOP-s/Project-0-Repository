@@ -17,11 +17,18 @@ public abstract class Item {
     protected static List<String> labels;
 
     protected Item(String t, String d, Project pro, LocalDate due, String pri) {
-        t = title;
-        d = description;
-        pro = project;
-        due = dueDate;
-        pri = priority;
+        title = t;
+        description =d;
+        project = pro;
+        dueDate = due;
+        priority = pri;
+    }
+    protected Item(String t, String d, subProject subPro, LocalDate due, String pri) {
+        title = t;
+        description = d;
+        subProject = subPro;
+        dueDate = due;
+        priority = pri;
     }
 
     // Get-er's and Set-er's
