@@ -139,7 +139,7 @@ public abstract class itemList {
             }
         }
     }
-    // This method finds all of the completed tasks for a provided project and moves them pack while removing them from the completed list
+    // This method finds all of the completed tasks for a provided project and moves them back while removing them from the completed list
     public void showCompletedTasks(Project project) throws IOException {
         Project Completed = fileRead.projectFileReader(project.getUser(),"Completed");
         int length = Completed.linkedItemList.size();
