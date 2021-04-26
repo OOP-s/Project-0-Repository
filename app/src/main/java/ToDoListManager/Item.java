@@ -1,7 +1,5 @@
 package ToDoListManager;
-//doesn't our task constructor need a project and/or subproject??
-//On the file read for subprojects does "/Subprojects" mean that there is a whole other folder for subprojects? i thought that
-// subprojects were folders inside of a project folder.
+
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
@@ -29,6 +27,7 @@ public abstract class Item {
         subProject = subPro;
         dueDate = due;
         priority = pri;
+        project = subPro.getParentProject();
     }
 
     // Get-er's and Set-er's

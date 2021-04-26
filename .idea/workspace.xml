@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="added some constructors to task and item">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.8/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
@@ -16,6 +18,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_4_4_21__10_57_AM__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Task.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Task.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/itemList.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/itemList.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -411,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619309461932</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="added some constructors to task and item">
+      <created>1619309807364</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1619309807364</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
