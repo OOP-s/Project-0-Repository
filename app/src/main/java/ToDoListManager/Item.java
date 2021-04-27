@@ -3,6 +3,7 @@ package ToDoListManager;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
+// John shouldn't the constructor declare statements be the other way around?
 
 public abstract class Item {
     // Variables
@@ -18,6 +19,13 @@ public abstract class Item {
         t = title;
         d = description;
         pro = project;
+        due = dueDate;
+        pri = priority;
+    }
+    protected Item(String t, String d, subProject subPro, LocalDate due, String pri){
+        t= title;
+        d= description;
+        subPro = subProject;
         due = dueDate;
         pri = priority;
     }

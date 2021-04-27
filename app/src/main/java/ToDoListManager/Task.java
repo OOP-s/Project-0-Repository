@@ -11,14 +11,19 @@ public class Task extends Item {
     protected Task(String t, String d, Project pro, LocalDate due, String pri) {
         super(t,d,pro,due,pri);
     }
-
-
+    protected Task(String t, String d, subProject subPro, LocalDate due, String pri) {
+        super(t,d,subPro,due,pri);
+    }
     public Task newTask(String t, String d, Project pro, LocalDate due, String pri) throws IOException {
         Task task = new Task(t,d,pro,due,pri);
         task.getProject().addItem(task,Task.getProject());
         return task;
     }
-
+    public Task newTask(String t, String d, subProject subPro, LocalDate due, String pri) throws IOException {
+        Task task = new Task(t, d, subPro, due, pri);
+        task.getProject().addItem(task, Task.getProject());
+        return task;
+    }
 
     public String toString() {
         return "\n Task [ title: "+title+", description: "+ description+
