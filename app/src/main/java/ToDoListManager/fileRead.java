@@ -39,4 +39,19 @@ public class fileRead {
         writer.close();
     }
 
+
+
+    static User writeUsers(String username, String password, String firstName, String lastName, String biography) throws IOException {
+        Manager manager = new Manager();
+        //code to read all users from gson file into the ArrayList.
+        manager.setUsers(manager.returnUsers());
+        User newUser = new User(username, password, firstName, lastName, biography);
+        manager.users.add(newUser);
+        //code to write all users into a gson file.
+
+        FileWriter writer = new FileWriter("userInfo/Users");
+        writer.write(gson.toJson(manager));
+        writer.close();
+        return newUser;
+    }
 }

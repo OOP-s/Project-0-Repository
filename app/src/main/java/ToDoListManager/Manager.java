@@ -6,6 +6,10 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
 
 public class Manager {
@@ -18,19 +22,8 @@ public class Manager {
 
     //method to register user.
     public static void registerUser(String username, String password, String firstName, String lastName, String biography) throws IOException {
-        Manager manager = new Manager();
-        //code to read all users from gson file into the ArrayList.
-        manager.setUsers(returnUsers());
-        User newUser = new User(username, password, firstName, lastName, biography);
-        getUsers().add(newUser);
-        //code to write all users into a gson file.
 
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-        FileWriter writer = new FileWriter("userInfo/Users");
-        writer.write(gson.toJson(manager));
-        writer.close();
-
+        User newUser = fileRead.writeUsers(username, password, firstName, lastName, biography);
         try {
             Path path = Paths.get("DataFiles/Users/" + username + "/");
             Files.createDirectory(path);
@@ -73,10 +66,19 @@ public class Manager {
     }
 
     public static ArrayList<User> returnUsers() throws IOException {
-        Manager manager = fileRead.userFileReader();
-        return  manager.users;
+        users = fileRead.userFileReader().users;
+
+        return  users;
     }
 
 
+    public String toString() {
+        return ("Users: "+users.toString());
+    }
+
+    public static void main(String[] args) throws IOException {
+        //registerUser("Washington","1346","George","Washington", "President");
+        System.out.println(returnUsers());
+    }
 
 }
