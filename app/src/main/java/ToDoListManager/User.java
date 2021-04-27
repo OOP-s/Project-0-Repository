@@ -75,7 +75,7 @@ public class User extends UserTemplate {
     }
 
     public String toString() {
-        return "Username: " +  getUsername() + " Password: " + getPassword() + " Name: " + getFirstName() + " " + getLastName();
+        return "[Username: " +  getUsername() + " Password: " + getPassword() + " Name: " + getFirstName() + " " + getLastName() + "]";
     }
 
     public void addProject(String title) {

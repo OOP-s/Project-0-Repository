@@ -58,7 +58,7 @@ public abstract class itemList {
             fileRead.writeJSON(Today, item.getProject().getUser(),"Today");
         }
     }
-    public void addItem(Item item, subProject subproject) throws IOException {
+    public static void addItem(Item item, subProject subproject) throws IOException {
         // All comments for the first addItem method work here except its for subProjects
         subProject newFile = (subProject) fileRead.subProjectFileReader(item.getSubProject().getUser(), item.getSubProject().getTitle());
         newFile.linkedItemList.add(item);
