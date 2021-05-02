@@ -14,18 +14,21 @@ public class Admin extends UserTemplate {
        super.username = "Admin";
        super.password = "password";
     }
+    public String toString() {
+        return "[Username: Admin, Password: password]";
+    }
 // method for change password in Admin class.
     public boolean changePassword(User user, String newPassword) throws IOException {
 
 
         Manager manager = new Manager();
-        manager.users = Manager.returnUsers();
+        //manager.users = Manager.returnUsers();
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
 
-        manager.users.remove(user);
+        manager.users.remove(user.toString());
         user.setPassword(newPassword);
-        manager.users.add(user);
+        manager.users.add(user.toString());
 
         FileWriter writer = new FileWriter("userInfo/Users");
         writer.write(gson.toJson(manager));

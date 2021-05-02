@@ -8,7 +8,7 @@ public class User extends UserTemplate {
     private String lastName;
     private String biography;
     private PNG profileImage; //still not sure of data type for this
-    private LinkedList<String> projectList = new LinkedList<String>();
+    private LinkedList<String> projectList = new LinkedList<>();
 
     // four different constructors since a biography and profile image are optional for the user
     protected User(String username, String password, String firstName, String lastName){
@@ -54,6 +54,7 @@ public class User extends UserTemplate {
 
 
     //getter methods
+
     public String getFirstName() { return firstName; }
     public String getLastName() { return lastName; }
     public String getBiography() { return biography; }
@@ -75,7 +76,8 @@ public class User extends UserTemplate {
     }
 
     public String toString() {
-        return "Username: " +  getUsername() + " Password: " + getPassword() + " Name: " + getFirstName() + " " + getLastName();
+        return "[Username: " +  getUsername() + " Password: " + getPassword() + " Name: " + getFirstName() + " " + getLastName() + " Biography: " +
+                getBiography() + "]";
     }
 
     public void addProject(String title) {
