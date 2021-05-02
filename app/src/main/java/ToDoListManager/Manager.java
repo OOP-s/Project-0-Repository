@@ -1,7 +1,6 @@
 package ToDoListManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
@@ -20,7 +19,7 @@ public class Manager {
 
     public static ArrayList<String> getUsers(){return users;}
     public static Admin getAdmin(){return admin;}
-    
+
     //method to register user.
     public static void registerUser(String username, String password, String firstName, String lastName, String biography) throws IOException {
 
@@ -87,8 +86,8 @@ public class Manager {
         }
     }
 
-    public static ArrayList<String> returnUsers() throws IOException {
-        return  fileRead.userFileReader();
+    public static ArrayList returnUsers() throws IOException {
+        return fileRead.userFileReader();
     }
 
 

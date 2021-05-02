@@ -31,7 +31,7 @@ import java.util.concurrent.TimeUnit;
 import static ToDoListManager.Manager.*;
 import static ToDoListManager.fileRead.userFileReader;
 import static javafx.collections.FXCollections.concat;
-/*
+
 public class UI extends Application{
     public static void main(String[] args) {
         Application.launch(args);
@@ -251,23 +251,27 @@ public class UI extends Application{
         });
 
         login.setOnAction(value -> { // this button is on the login screen
-            if(loginUser(loginField1.getText(), loginField2.getText()) == 2){
-                error1.setVisible(false);
-                stage.hide();
-                // next screen
-                // different for admin change later
-                adminStage.setScene(adminScreen);
-                adminStage.show();
-            } else if(loginUser(loginField1.getText(), loginField2.getText()) == 1) {
-                error1.setVisible(false);
-                stage.hide();
-                // next screen
-                mainStage.setScene(mainScreen);
-                mainStage.show();
-            } else {
-                error1.setVisible(true);
+            try {
+                if(loginUser(loginField1.getText(), loginField2.getText()) == 2){
+                    error1.setVisible(false);
+                    stage.hide();
+                    // next screen
+                    // different for admin change later
+                    adminStage.setScene(adminScreen);
+                    adminStage.show();
+                } else if(loginUser(loginField1.getText(), loginField2.getText()) == 1) {
+                    error1.setVisible(false);
+                    stage.hide();
+                    // next screen
+                    mainStage.setScene(mainScreen);
+                    mainStage.show();
+                } else {
+                    error1.setVisible(true);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-                loginField1.clear();
+            loginField1.clear();
                 loginField2.clear();
         });
 
@@ -300,4 +304,3 @@ public class UI extends Application{
         wait.play();
     }
 }
-*/
