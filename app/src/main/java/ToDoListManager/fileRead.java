@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 
 public class fileRead {
@@ -32,13 +33,26 @@ public class fileRead {
         return gson.fromJson(bufferedReader, ArrayList.class);
     }
 
+    public static LinkedList projectListReader(User user) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+user.getUsername()+"/ProjectNames"));
+        return gson.fromJson(bufferedReader, LinkedList.class);
+    }
+    public static void projectListWriter(User user) throws IOException {
+        FileWriter writer = new FileWriter("DataFiles/Users/"+user.getUsername()+"/ProjectNames");
+        Type type = new TypeToken<LinkedList>(){}.getType();
+        LinkedList list = user.getProjectList();
+        writer.write(gson.toJson(list, type));
+        writer.close();
+    }
+
     public static void userFileWriter() throws IOException {
         Type type = new TypeToken<ArrayList<String>>(){}.getType();
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         FileWriter writer = new FileWriter("userInfo/Users");
         writer.write(gson.toJson(Manager.returnUsers(), type));
-        writer.close();}
+        writer.close();
+    }
 
     // Write a project to file
     public static void writeJSON(Project project,User user, String filename) throws IOException {

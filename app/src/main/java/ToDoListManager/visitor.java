@@ -3,7 +3,7 @@ package ToDoListManager;
 public class visitor {
 
 
-    public void
+    public void sad() {}
 
 
 }

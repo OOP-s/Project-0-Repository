@@ -1,5 +1,6 @@
 package ToDoListManager;
 
+import java.io.IOException;
 import java.util.LinkedList;
 
 public class User extends UserTemplate {
@@ -8,7 +9,7 @@ public class User extends UserTemplate {
     private String lastName;
     private String biography;
     private PNG profileImage; //still not sure of data type for this
-    private LinkedList<String> projectList = new LinkedList<>();
+    private LinkedList projectList = new LinkedList<>();
     private String Name;
 
     // four different constructors since a biography and profile image are optional for the user
@@ -65,7 +66,7 @@ public class User extends UserTemplate {
     public String getBiography() { return biography; }
     public PNG getProfileImage() { return profileImage; }
     public String getName() {return Name;}
-    public LinkedList<String> getProjectList() {return projectList;}
+    public LinkedList getProjectList() throws IOException {return fileRead.projectListReader(this);}
 
     //setter methods
     public void setName(String firstName, String lastName) {
@@ -83,16 +84,26 @@ public class User extends UserTemplate {
     }
 
     public String toString() {
-        return "[Username: " +  getUsername() + " Password: " + getPassword() + " Name: " + getFirstName() + " " + getLastName() + " Biography: " +
-                getBiography() + " ProjectList: "+ getProjectList() + "]";
+
+        try {
+            return "[Username: " +  getUsername() + " Password: " + getPassword() + " Name: " + getFirstName() + " " + getLastName() + " Biography: " +
+                    getBiography() + " ProjectList: "+ getProjectList() + "]";
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "ERROR";
+        }
+
     }
 
-    public void addProject(String title) {
+    public void addProject(String title) throws IOException {
+        projectList = fileRead.projectListReader(this);
         projectList.add(title);
+        fileRead.projectListWriter(this);
     }
-    public void removeProject(String title){
-
+    public void removeProject(String title) throws IOException {
+        projectList = fileRead.projectListReader(this);
         projectList.remove(title);
+        fileRead.projectListWriter(this);
     }
 
 
