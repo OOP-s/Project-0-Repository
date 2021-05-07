@@ -1,10 +1,6 @@
 package ToDoListManager;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
-import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -17,7 +13,7 @@ public class Manager {
 
     public Manager (){}
 
-    public static ArrayList<String> getUsers(){return users;}
+    public static ArrayList getUsers(){return users;}
     public static Admin getAdmin(){return admin;}
 
     //method to register user.

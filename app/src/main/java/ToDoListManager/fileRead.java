@@ -22,6 +22,10 @@ public class fileRead {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+user.getUsername()+"/"+filename));
         return gson.fromJson(bufferedReader, Project.class);
     }
+    public static Project projectFileReader(String username, String filename) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+username+"/"+filename));
+        return gson.fromJson(bufferedReader, Project.class);
+    }
     // Reads and returns a subproject
     public static subProject subProjectFileReader(User user, String filename) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+user.getUsername()+"/SubProjects/"+filename));
@@ -35,6 +39,10 @@ public class fileRead {
 
     public static LinkedList projectListReader(User user) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+user.getUsername()+"/ProjectNames"));
+        return gson.fromJson(bufferedReader, LinkedList.class);
+    }
+    public static LinkedList projectListReader(String username) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+username+"/ProjectNames"));
         return gson.fromJson(bufferedReader, LinkedList.class);
     }
     public static void projectListWriter(User user) throws IOException {
