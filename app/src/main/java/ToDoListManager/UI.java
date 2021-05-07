@@ -283,7 +283,7 @@ public class UI extends Application{
                 } else if(loginUser(loginField1.getText(), loginField2.getText()) == 1) {
                     error1.setVisible(false);
                     // next screen
-                    getUser(userArrayList, loginField1.getText());
+                    //getUser(userArrayList, loginField1.getText());
                     //ArrayList<Project> currentUserProjects = new ArrayList<>();
                     //for (String project ) {
 
