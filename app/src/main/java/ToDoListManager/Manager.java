@@ -1,7 +1,6 @@
 package ToDoListManager;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.*;
@@ -13,14 +12,14 @@ import java.util.ArrayList;
 
 
 public class Manager {
-    public static ArrayList<String> users = new ArrayList<>();
+    public static ArrayList users = new ArrayList<>();
     public static Admin admin = new Admin();
 
     public Manager (){}
 
     public static ArrayList<String> getUsers(){return users;}
     public static Admin getAdmin(){return admin;}
-    
+
     //method to register user.
     public static void registerUser(String username, String password, String firstName, String lastName, String biography) throws IOException {
 
@@ -66,9 +65,8 @@ public class Manager {
     //method for logging in as a user.
     public static int loginUser(String username, String password) throws IOException {
 
-        users = returnUsers();
-        int amntUsers = users.size();
-        for (String user: users) {
+        ArrayList<String> usersList = returnUsers();
+        for (String user: usersList) {
             //retrieving the username and password from each string.
             String savedUsername = user.substring(11, user.indexOf(" Password: "));
             String savedPassword = user.substring(user.indexOf("Password: ") + 10, user.indexOf(" Name:"));
@@ -88,7 +86,7 @@ public class Manager {
     }
 
     public static ArrayList<String> returnUsers() throws IOException {
-        return  fileRead.userFileReader();
+        return fileRead.userFileReader();
     }
 
 

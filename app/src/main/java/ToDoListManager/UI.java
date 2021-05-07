@@ -23,15 +23,12 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.util.ArrayList;
+import java.util.StringTokenizer;
 
 import static ToDoListManager.Manager.*;
-import static ToDoListManager.fileRead.userFileReader;
-import static javafx.collections.FXCollections.concat;
-/*
+
 public class UI extends Application{
     public static void main(String[] args) {
         Application.launch(args);
@@ -46,7 +43,7 @@ public class UI extends Application{
         Stage mainStage = new Stage();
 
         // Login page items
-        Text email = new Text("Email");
+        Text email = new Text("Username");
         Text password = new Text("Password");
         TextField loginField1 = new TextField();
         PasswordField loginField2 = new PasswordField();
@@ -72,32 +69,48 @@ public class UI extends Application{
         Text error1 = new Text("Incorrect email or password");
 
         //admin page items
-        TableView<UserTemplate> userTable = new TableView<>();
+        TableView<User> userTable = new TableView<>();
 
         //for (User user:returnUsers()) {userList.add(user)
 
         //}
-        final ObservableList<UserTemplate> userArrayList = FXCollections.observableArrayList(returnUsers());
-        final ObservableList<UserTemplate> adminArrayList = FXCollections.observableArrayList(Manager.getAdmin());
-        final ObservableList<UserTemplate> data = FXCollections.concat(userArrayList, adminArrayList);
-        userTable.setEditable(true);
+        ArrayList<String> userArrayList = returnUsers();
 
+        userTable.setEditable(true);
         var nameCol = new TableColumn("Name");
         nameCol.setMinWidth(120);
-        nameCol.setCellValueFactory(
-                new PropertyValueFactory<UserTemplate, String>("firstname+lastname"));
-
         TableColumn passwordCol = new TableColumn("Password");
         passwordCol.setMinWidth(100);
-        passwordCol.setCellValueFactory(
-                new PropertyValueFactory<User, String>("password"));
-
-        TableColumn emailCol = new TableColumn("Email");
+        TableColumn emailCol = new TableColumn("Username");
         emailCol.setMinWidth(200);
-        emailCol.setCellValueFactory(
-                new PropertyValueFactory<User, String>("username"));
 
-        userTable.setItems(data);
+        ArrayList<User> UserList = new ArrayList<>();
+
+        for (String user: userArrayList) {
+            //retrieving the username and password from each string.
+            String savedUsername = user.substring(11, user.indexOf(" Password: "));
+
+            String savedPassword = user.substring(user.indexOf("Password: ") + 10, user.indexOf(" Name:"));
+
+            String savedName = user.substring(user.indexOf("Name: ") + 5, user.indexOf(" Biography:"));
+            StringTokenizer newSavedName = new StringTokenizer(savedName);
+            String savedFirstName = newSavedName.nextToken();
+            String savedLastName = newSavedName.nextToken();
+            UserList.add(new User(savedUsername, savedPassword, savedFirstName, savedLastName));
+            System.out.println(savedFirstName);
+            System.out.println(savedLastName);
+        }
+        final ObservableList<User> ObservableUserList = FXCollections.observableArrayList(UserList);
+
+            nameCol.setCellValueFactory(
+                    new PropertyValueFactory<ArrayList<User>, String>("Name"));
+            passwordCol.setCellValueFactory(
+                    new PropertyValueFactory<ArrayList<User>, String>("password"));
+            emailCol.setCellValueFactory(
+                    new PropertyValueFactory<ArrayList<User>, String>("username"));
+
+
+        userTable.setItems(ObservableUserList);
         userTable.getColumns().addAll(nameCol, emailCol, passwordCol);
         passwordCol.setCellFactory(TextFieldTableCell.forTableColumn());
         passwordCol.setOnEditCommit(
@@ -109,7 +122,7 @@ public class UI extends Application{
                         ).setPassword(t.getNewValue());
                     }
                 }
-        );
+        ); //changing the password in the field doesn't actually change the password
 
         Button logoutButton1 = new Button("Logout");
         Button searchButton = new Button("Search");
@@ -251,23 +264,27 @@ public class UI extends Application{
         });
 
         login.setOnAction(value -> { // this button is on the login screen
-            if(loginUser(loginField1.getText(), loginField2.getText()) == 2){
-                error1.setVisible(false);
-                stage.hide();
-                // next screen
-                // different for admin change later
-                adminStage.setScene(adminScreen);
-                adminStage.show();
-            } else if(loginUser(loginField1.getText(), loginField2.getText()) == 1) {
-                error1.setVisible(false);
-                stage.hide();
-                // next screen
-                mainStage.setScene(mainScreen);
-                mainStage.show();
-            } else {
-                error1.setVisible(true);
+            try {
+                if(loginUser(loginField1.getText(), loginField2.getText()) == 2){
+                    error1.setVisible(false);
+                    stage.hide();
+                    // next screen
+                    // different for admin change later
+                    adminStage.setScene(adminScreen);
+                    adminStage.show();
+                } else if(loginUser(loginField1.getText(), loginField2.getText()) == 1) {
+                    error1.setVisible(false);
+                    stage.hide();
+                    // next screen
+                    mainStage.setScene(mainScreen);
+                    mainStage.show();
+                } else {
+                    error1.setVisible(true);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-                loginField1.clear();
+            loginField1.clear();
                 loginField2.clear();
         });
 
@@ -300,4 +317,3 @@ public class UI extends Application{
         wait.play();
     }
 }
-*/

@@ -9,12 +9,14 @@ public class User extends UserTemplate {
     private String biography;
     private PNG profileImage; //still not sure of data type for this
     private LinkedList<String> projectList = new LinkedList<>();
+    private String Name;
 
     // four different constructors since a biography and profile image are optional for the user
     protected User(String username, String password, String firstName, String lastName){
         super(username, password);
         this.firstName = firstName;
         this.lastName = lastName;
+        this.Name = firstName+" "+lastName;
         projectList.add("Today");
         projectList.add("Upcoming");
         projectList.add("Overdue");
@@ -25,6 +27,7 @@ public class User extends UserTemplate {
         this.firstName = firstName;
         this.lastName = lastName;
         this.biography = biography;
+        this.Name = firstName+" "+lastName;
         projectList.add("Today");
         projectList.add("Upcoming");
         projectList.add("Overdue");
@@ -35,6 +38,7 @@ public class User extends UserTemplate {
         this.firstName = firstName;
         this.lastName = lastName;
         this.profileImage = profileImage;
+        this.Name = firstName+" "+lastName;
         projectList.add("Today");
         projectList.add("Upcoming");
         projectList.add("Overdue");
@@ -44,6 +48,7 @@ public class User extends UserTemplate {
         super(username, password);
         this.firstName = firstName;
         this.lastName = lastName;
+        this.Name = firstName+" "+lastName;
         this.biography = biography;
         this.profileImage = profileImage;
         projectList.add("Today");
@@ -59,12 +64,14 @@ public class User extends UserTemplate {
     public String getLastName() { return lastName; }
     public String getBiography() { return biography; }
     public PNG getProfileImage() { return profileImage; }
+    public String getName() {return Name;}
     public LinkedList<String> getProjectList() {return projectList;}
 
     //setter methods
     public void setName(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.Name = firstName+lastName;
     }
     public void setUsername(String username) { this.username = username; }
     public void setPassword(String password) { this.password = password; }
