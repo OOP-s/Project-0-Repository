@@ -93,14 +93,8 @@ public class Manager {
 
     public static void main(String[] args) throws IOException {
 
+        loginUser("MrMagic","1");
 
-        //registerUser("basketball23", "GOAT", "Michael", "Jordan", "Best BB player");
-        //registerUser("soccer10", "CurrentGOAT", "Lionel" ,"Messi", "best current soccer player");
-        //String example = "/abc/def/ghfj.doc";
-        //System.out.println(example.substring(example.lastIndexOf("/") + 1));
-        //String Example = "Username:hello Password:pass otherStuff";
-        //System.out.println(Example.substring(Example.lastIndexOf("Password:"), Example.indexOf(" ", Example.lastIndexOf("Password:"))));
-        //loginUser("basketball23", "GOAT");
     }
 
 }
