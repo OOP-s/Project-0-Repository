@@ -5,9 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b0d3b1a0-08c3-40f8-9342-760e5ea6d950" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/visitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Manager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Project.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/Project.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/fileRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/ToDoListManager/fileRead.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -431,7 +433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620410267477</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Started a visitor class">
+      <created>1620411733472</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1620411733472</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -448,7 +457,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="changes" />
     <MESSAGE value="Changed some comments" />
     <MESSAGE value="Worked on the fileRead class and made some minor changes to other classes" />
     <MESSAGE value="Worked on the fileRead class and fixed some itemList methods by making the testItem project variable transient" />
@@ -475,7 +483,8 @@
     <MESSAGE value="fixed the registerUser method and Login method working with GSON. also made some other minor changes." />
     <MESSAGE value="commit before pull" />
     <MESSAGE value="tested user code" />
-    <option name="LAST_COMMIT_MESSAGE" value="tested user code" />
+    <MESSAGE value="Started a visitor class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Started a visitor class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

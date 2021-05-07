@@ -84,13 +84,14 @@ public class User extends UserTemplate {
 
     public String toString() {
         return "[Username: " +  getUsername() + " Password: " + getPassword() + " Name: " + getFirstName() + " " + getLastName() + " Biography: " +
-                getBiography() + "]";
+                getBiography() + " ProjectList: "+ getProjectList() + "]";
     }
 
     public void addProject(String title) {
         projectList.add(title);
     }
     public void removeProject(String title){
+
         projectList.remove(title);
     }
 

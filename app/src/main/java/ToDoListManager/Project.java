@@ -24,7 +24,7 @@ public class Project extends itemList {
         Project newP = new Project(title,description);
         newP.setUser(user);
         fileRead.writeJSON(newP,user,title);
-
+        user.addProject(title);
         return newP;
     }
 

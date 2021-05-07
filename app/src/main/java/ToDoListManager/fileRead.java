@@ -32,6 +32,14 @@ public class fileRead {
         return gson.fromJson(bufferedReader, ArrayList.class);
     }
 
+    public static void userFileWriter() throws IOException {
+        Type type = new TypeToken<ArrayList<String>>(){}.getType();
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        FileWriter writer = new FileWriter("userInfo/Users");
+        writer.write(gson.toJson(Manager.returnUsers(), type));
+        writer.close();}
+
     // Write a project to file
     public static void writeJSON(Project project,User user, String filename) throws IOException {
         FileWriter writer = new FileWriter("DataFiles/Users/"+user.getUsername()+"/"+filename);

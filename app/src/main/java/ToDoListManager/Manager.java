@@ -28,15 +28,11 @@ public class Manager {
         //users = returnUsers();
         //code to add additional user
         User newUser = new User(username, password, firstName, lastName, biography);
+        users = returnUsers();
         users.add(newUser.toString());
 
         //code to write all users into a gson file.
-        Type type = new TypeToken<ArrayList<String>>(){}.getType();
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-        FileWriter writer = new FileWriter("userInfo/Users");
-        writer.write(gson.toJson(users, type));
-        writer.close();
+        fileRead.userFileWriter();
 
         try {
             Path path = Paths.get("DataFiles/Users/" + username + "/");
@@ -85,7 +81,7 @@ public class Manager {
         }
     }
 
-    public static ArrayList<String> returnUsers() throws IOException {
+    public static ArrayList returnUsers() throws IOException {
         return fileRead.userFileReader();
     }
 
