@@ -25,9 +25,11 @@ import javafx.util.Duration;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 import static ToDoListManager.Manager.*;
+import static ToDoListManager.fileRead.projectsFileReader;
 
 public class UI extends Application{
     public static void main(String[] args) {
@@ -140,14 +142,13 @@ public class UI extends Application{
         Button logoutButton2 = new Button("Logout");
         TabPane listTabs = new TabPane();
         TabPane sublistTab1 = new TabPane();
-
         Tab tab1 = new Tab("Completed", new Label("Show all completed tasks"));
-        Tab tab2 = new Tab("Upcoming"  , new Label("Show all Upcoming tasks"));
-        Tab tab3 = new Tab("Overdue" , new Label("Show all overdue tasks"));
+        Tab tab2 = new Tab("Upcoming", new Label("Show all Upcoming tasks"));
+        Tab tab3 = new Tab("Overdue", new Label("Show all overdue tasks"));
         Tab tab4 = new Tab("Today", sublistTab1);
 
         Tab tab5 = new Tab("Subproject 1", new Label("Here you would put some tasks"));
-        Tab tab6 = new Tab("Subproject2", new Label("Here are some more tasks"));
+        Tab tab6 = new Tab("Subproject 2", new Label("Here are some more tasks"));
 
         //CheckBox taskCheck1 = new CheckBox(task.getTitle());
         //String labels = "";
@@ -158,6 +159,8 @@ public class UI extends Application{
         //for (String subtask:task.getSubtaskList(){
         //    structure.add(new CheckBox(subtask.getTitle()));
         //}
+
+
 
         listTabs.getTabs().add(tab1);
         listTabs.getTabs().add(tab2);
@@ -260,6 +263,11 @@ public class UI extends Application{
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            username.clear();
+            newPasswordField.clear();
+            firstName.clear();
+            lastName.clear();
+            biography.clear();
             registerStage.hide();
         });
 
@@ -274,11 +282,16 @@ public class UI extends Application{
                     adminStage.show();
                 } else if(loginUser(loginField1.getText(), loginField2.getText()) == 1) {
                     error1.setVisible(false);
-                    stage.hide();
                     // next screen
+                    //getUser(userArrayList, loginField1.getText());
+                    //ArrayList<Project> currentUserProjects = new ArrayList<>();
+                    //for (String project ) {
+
+                    //}
+                    stage.hide();
                     mainStage.setScene(mainScreen);
                     mainStage.show();
-                } else {
+            } else {
                     error1.setVisible(true);
                 }
             } catch (IOException e) {
