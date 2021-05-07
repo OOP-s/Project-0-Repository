@@ -85,6 +85,19 @@ public class Manager {
         }
     }
 
+    public static User getUser(ArrayList<String> userArrayList, String username) throws IOException {
+        Boolean isUser = false;
+        int i=0;
+        while (isUser==false) {
+            if (i > userArrayList.size()) {
+                isUser = true;
+            }
+            if (userArrayList.get(i).substring(11, userArrayList.get(i).indexOf(" Password: ")).equals(username)) {
+                isUser = true;
+            }
+            i++;
+    }
+
     public static ArrayList<String> returnUsers() throws IOException {
         return fileRead.userFileReader();
     }
