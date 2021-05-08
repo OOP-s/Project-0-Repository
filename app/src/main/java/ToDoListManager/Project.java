@@ -1,6 +1,9 @@
 package ToDoListManager;
 
 
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.io.IOException;
 
@@ -25,6 +28,13 @@ public class Project extends itemList {
         newP.setUser(user);
         fileRead.writeJSON(newP,user,title);
         user.addProject(title);
+        try {
+            Path path = Paths.get("DataFiles/Users/" + title + "/SubProjects/");
+            Files.createDirectory(path);
+            System.out.println("Directory is Created");
+        } catch (IOException e) {
+            System.err.println("Failed to create a directory!" + e.getMessage());
+        }
         return newP;
     }
 
