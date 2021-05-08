@@ -1,4 +1,6 @@
 package ToDoListManager;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -45,7 +47,10 @@ public class UI extends Application{
         Stage adminStage = new Stage();
         Stage splashStage = new Stage();
         Stage mainStage = new Stage();
+        Stage popUpStage = new Stage();
         LinkedList<Project> tempUserProjects = new LinkedList<>();
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
 
         // Login page items
         Text email = new Text("Username");
@@ -130,6 +135,7 @@ public class UI extends Application{
         Scene registerScreen = new Scene(registerPane);
 
 
+
         //button actions
 
         register.setOnAction(value -> {  // this button is on the login screen
@@ -166,18 +172,10 @@ public class UI extends Application{
         Button search = new Button("Search");
         Button addListButton = new Button("Add List");
         Button addSublistButton = new Button("Add Sublist");
-        Button addTaskButton = new Button("Add Button");
+        Button addTaskButton = new Button("Add Task");
         Button addSubtask = new Button("Add Subtask");
         Button logoutButton2 = new Button("Logout");
         TabPane listTabs = new TabPane();
-        //TabPane sublistTab1 = new TabPane();
-        //Tab tab1 = new Tab("Completed", new Label("Show all completed tasks"));
-        //Tab tab2 = new Tab("Upcoming", new Label("Show all Upcoming tasks"));
-        //Tab tab3 = new Tab("Overdue", new Label("Show all overdue tasks"));
-        //Tab tab4 = new Tab("Today", sublistTab1);
-
-        //Tab tab5 = new Tab("Subproject 1", new Label("Here you would put some tasks"));
-        //Tab tab6 = new Tab("Subproject 2", new Label("Here are some more tasks"));
 
         //CheckBox taskCheck1 = new CheckBox(task.getTitle());
         //String labels = "";
@@ -188,21 +186,55 @@ public class UI extends Application{
         //for (String subtask:task.getSubtaskList(){
         //    structure.add(new CheckBox(subtask.getTitle()));
         //}
+        AtomicReference<String> currentUser = new AtomicReference<>();
+        //ArrayList<String> Users = fileRead.userFileReader();
+        //int num=0;
+        //for (String user:Users){
+        //    if (user.substring(11, user.indexOf(" Password: "))==currentUser.get()){
+        //        num = Users.indexOf(user);
+        //    }
+        //}
+        //String usableUsers = Users.get(num);
+        //String theSavedName = usableUsers.substring(usableUsers.indexOf("Name: ") + 5, usableUsers.indexOf(" Biography:"));
+        //StringTokenizer aSavedName = new StringTokenizer(theSavedName);
+        //String FirstName = aSavedName.nextToken();
+        //String LastName = aSavedName.nextToken();
+        //User aUser = new User(usableUsers.substring(11, usableUsers.indexOf(" Password: ")+11), usableUsers.substring(usableUsers.indexOf(" Password: ")+11,usableUsers.indexOf(" Name: ")),FirstName,LastName);
+        //addListButton.setOnAction(value->{
+        //    Label listTitle = new Label("Title:");
+        //    Label listDescription = new Label("Description");
+        //    TextField projectTitle = new TextField();
+        //    TextField projectDescription = new TextField();
+        //    Button newProjectButton = new Button("Submit");
+        //    Label message1 = new Label("New projects will be visible the next time you log in.");
+            //subprojectTitles list
+            //associated user
+        //    GridPane addListPane = new GridPane();
+        //    addListPane.add(listTitle,0,0);
+        //    addListPane.add(listDescription,0,1);
+        //    addListPane.add(projectTitle,1,0);
+        //    addListPane.add(projectDescription,1,1);
+        //    addListPane.add(message1,0,2,2,1);
+        //    addListPane.add(newProjectButton,0,3);
+        //    Scene addListScreen = new Scene(addListPane);
+        //    popUpStage.setScene(addListScreen);
+        //    popUpStage.show();
 
+        //    newProjectButton.setOnAction(value2->{
+        //        try {
+        //            newProject(aUser, projectTitle.getText(), projectDescription.getText());
+        //        } catch (IOException e) {
+        //            e.printStackTrace();
+        //        }
+        //        popUpStage.hide();
+        //    });
 
-
-        //listTabs.getTabs().add(tab1);
-        //listTabs.getTabs().add(tab2);
-        //listTabs.getTabs().add(tab3);
-        //listTabs.getTabs().add(tab4);
-        //sublistTab1.getTabs().add(tab5);
-        //sublistTab1.getTabs().add(tab6);
+        //});
 
         TableView<User> userTable = new TableView<>();
         Button searchButton = new Button("Search");
         TextField searchBar = new TextField();
         Button logoutButton1 = new Button("Logout");
-        AtomicReference<String> currentUser = new AtomicReference<>();
 
         GridPane adminPane = new GridPane();
         // admin Pane
@@ -281,18 +313,18 @@ public class UI extends Application{
 
         ArrayList<User> UserList = new ArrayList<>();
 
-        //for (String user: userArrayList) {
-            //retrieving the username and password from each string.
-        //    String savedUsername = user.substring(11, user.indexOf(" Password: "));
+        for (String user: userArrayList) {
+          //retrieving the username and password from each string.
+            String savedUsername = user.substring(11, user.indexOf(" Password: "));
 
-        //    String savedPassword = user.substring(user.indexOf("Password: ") + 10, user.indexOf(" Name:"));
+            String savedPassword = user.substring(user.indexOf("Password: ") + 10, user.indexOf(" Name:"));
 
-        //    String savedName = user.substring(user.indexOf("Name: ") + 5, user.indexOf(" Biography:"));
-        //    StringTokenizer newSavedName = new StringTokenizer(savedName);
-        //    String savedFirstName = newSavedName.nextToken();
-        //    String savedLastName = newSavedName.nextToken();
-        //    UserList.add(new User(savedUsername, savedPassword, savedFirstName, savedLastName));
-        //}
+            String savedName = user.substring(user.indexOf("Name: ") + 5, user.indexOf(" Biography:"));
+            StringTokenizer newSavedName = new StringTokenizer(savedName);
+            String savedFirstName = newSavedName.nextToken();
+            String savedLastName = newSavedName.nextToken();
+            UserList.add(new User(savedUsername, savedPassword, savedFirstName, savedLastName));
+        }
         final ObservableList<User> ObservableUserList = FXCollections.observableArrayList(UserList);
 
         nameCol.setCellValueFactory(
