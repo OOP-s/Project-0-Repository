@@ -7,9 +7,8 @@ ToDoListManager/fileRead.java
  ToDoListManager.fileRead$1
  ToDoListManager.fileRead$2
  ToDoListManager.fileRead$3
-ToDoListManager/UI.java
- ToDoListManager.UI
- ToDoListManager.UI$1
+ToDoListManager/subProject.java
+ ToDoListManager.subProject
 ToDoListManager/Task.java
  ToDoListManager.Task
 module-info.java
@@ -24,6 +23,7 @@ ToDoListManager/Admin.java
  ToDoListManager.Admin
 ToDoListManager/Manager.java
  ToDoListManager.Manager
+ ToDoListManager.Manager$1
 ToDoListManager/PNG.java
  ToDoListManager.PNG
 ToDoListManager/UserTemplate.java
@@ -34,5 +34,6 @@ ToDoListManager/visitor.java
  ToDoListManager.visitor
 ToDoListManager/User.java
  ToDoListManager.User
-ToDoListManager/subProject.java
- ToDoListManager.subProject
+ToDoListManager/UI.java
+ ToDoListManager.UI
+ ToDoListManager.UI$1

@@ -31,6 +31,11 @@ public class fileRead {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+user.getUsername()+"/SubProjects/"+filename));
         return gson.fromJson(bufferedReader, subProject.class);
     }
+    public static subProject subProjectFileReader(String username, String filename) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+username+"/SubProjects/"+filename));
+        return gson.fromJson(bufferedReader, subProject.class);
+    }
+
     // Reads all of the users in the UserInfo folder and then returns an ArrayList containing the toString version of every user.
     public static ArrayList userFileReader() throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("userInfo/Users"));
@@ -41,7 +46,7 @@ public class fileRead {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+user.getUsername()+"/ProjectNames"));
         return gson.fromJson(bufferedReader, LinkedList.class);
     }
-    public static LinkedList projectListReader(String username) throws IOException {
+    public static LinkedList<String> projectListReader(String username) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader("DataFiles/Users/"+username+"/ProjectNames"));
         return gson.fromJson(bufferedReader, LinkedList.class);
     }
@@ -58,7 +63,7 @@ public class fileRead {
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
         FileWriter writer = new FileWriter("userInfo/Users");
-        writer.write(gson.toJson(Manager.returnUsers(), type));
+        writer.write(gson.toJson(Manager.getUsers(), type));
         writer.close();
     }
 

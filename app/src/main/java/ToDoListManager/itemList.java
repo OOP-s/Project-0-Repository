@@ -171,5 +171,3 @@ public abstract class itemList {
     }
 
 }
-
-

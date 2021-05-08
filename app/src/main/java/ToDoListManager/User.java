@@ -9,7 +9,7 @@ public class User extends UserTemplate {
     private String lastName;
     private String biography;
     private PNG profileImage; //still not sure of data type for this
-    private LinkedList projectList = new LinkedList<>();
+    private LinkedList<String> projectList = new LinkedList<>();
     private String Name;
 
     // four different constructors since a biography and profile image are optional for the user
@@ -66,7 +66,8 @@ public class User extends UserTemplate {
     public String getBiography() { return biography; }
     public PNG getProfileImage() { return profileImage; }
     public String getName() {return Name;}
-    public LinkedList getProjectList() throws IOException {return fileRead.projectListReader(this);}
+    public LinkedList<String> getProjectList() {return projectList;}
+    public LinkedList getDefaultProjectList() {return projectList;}
 
     //setter methods
     public void setName(String firstName, String lastName) {
@@ -84,14 +85,13 @@ public class User extends UserTemplate {
     }
 
     public String toString() {
+        StringBuffer stringBuffer = new StringBuffer();
 
-        try {
-            return "[Username: " +  getUsername() + " Password: " + getPassword() + " Name: " + getFirstName() + " " + getLastName() + " Biography: " +
-                    getBiography() + " ProjectList: "+ getProjectList() + "]";
-        } catch (IOException e) {
-            e.printStackTrace();
-            return "ERROR";
+        for (String s : getProjectList()) {
+            stringBuffer.append(s).append(" ");
         }
+        return "[Username: " +  getUsername() + " Password: " + getPassword() + " Name: " + getFirstName() + " " + getLastName() + " Biography: " +
+                getBiography() + " ProjectList: "+ stringBuffer + "]";
 
     }
 

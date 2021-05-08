@@ -25,10 +25,13 @@ import javafx.util.Duration;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.StringTokenizer;
+import java.util.concurrent.atomic.AtomicReference;
 
 import static ToDoListManager.Manager.*;
+import static ToDoListManager.fileRead.*;
+import static ToDoListManager.Project.*;
 
 public class UI extends Application{
     public static void main(String[] args) {
@@ -42,6 +45,7 @@ public class UI extends Application{
         Stage adminStage = new Stage();
         Stage splashStage = new Stage();
         Stage mainStage = new Stage();
+        LinkedList<Project> tempUserProjects = new LinkedList<>();
 
         // Login page items
         Text email = new Text("Username");
@@ -69,108 +73,11 @@ public class UI extends Application{
         Text newProfilePic = new Text("Profile Picture");
         Text error1 = new Text("Incorrect email or password");
 
-        //admin page items
-        TableView<User> userTable = new TableView<>();
 
-        //for (User user:returnUsers()) {userList.add(user)
-
-        //}
-        ArrayList<String> userArrayList = returnUsers();
-
-        userTable.setEditable(true);
-        var nameCol = new TableColumn("Name");
-        nameCol.setMinWidth(120);
-        TableColumn passwordCol = new TableColumn("Password");
-        passwordCol.setMinWidth(100);
-        TableColumn emailCol = new TableColumn("Username");
-        emailCol.setMinWidth(200);
-
-        ArrayList<User> UserList = new ArrayList<>();
-
-        for (String user: userArrayList) {
-            //retrieving the username and password from each string.
-            String savedUsername = user.substring(11, user.indexOf(" Password: "));
-
-            String savedPassword = user.substring(user.indexOf("Password: ") + 10, user.indexOf(" Name:"));
-
-            String savedName = user.substring(user.indexOf("Name: ") + 5, user.indexOf(" Biography:"));
-            StringTokenizer newSavedName = new StringTokenizer(savedName);
-            String savedFirstName = newSavedName.nextToken();
-            String savedLastName = newSavedName.nextToken();
-            UserList.add(new User(savedUsername, savedPassword, savedFirstName, savedLastName));
-            System.out.println(savedFirstName);
-            System.out.println(savedLastName);
-        }
-        final ObservableList<User> ObservableUserList = FXCollections.observableArrayList(UserList);
-
-            nameCol.setCellValueFactory(
-                    new PropertyValueFactory<ArrayList<User>, String>("Name"));
-            passwordCol.setCellValueFactory(
-                    new PropertyValueFactory<ArrayList<User>, String>("password"));
-            emailCol.setCellValueFactory(
-                    new PropertyValueFactory<ArrayList<User>, String>("username"));
-
-
-        userTable.setItems(ObservableUserList);
-        userTable.getColumns().addAll(nameCol, emailCol, passwordCol);
-        passwordCol.setCellFactory(TextFieldTableCell.forTableColumn());
-        passwordCol.setOnEditCommit(
-                new EventHandler<TableColumn.CellEditEvent<UserTemplate, String>>() {
-                    @Override
-                    public void handle(TableColumn.CellEditEvent<UserTemplate, String> t) {
-                        ((User) t.getTableView().getItems().get(
-                                t.getTablePosition().getRow())
-                        ).setPassword(t.getNewValue());
-                    }
-                }
-        ); //changing the password in the field doesn't actually change the password
-
-        Button logoutButton1 = new Button("Logout");
-        Button searchButton = new Button("Search");
-        TextField searchBar = new TextField();
-        searchBar.setPromptText("Search here");
-
-        //main page items
-        TextField mainSearch = new TextField();
-        mainSearch.setPromptText("Search here");
-        Button search = new Button("Search");
-        Button addListButton = new Button("Add List");
-        Button addSublistButton = new Button("Add Sublist");
-        Button addTaskButton = new Button("Add Button");
-        Button addSubtask = new Button("Add Subtask");
-        Button logoutButton2 = new Button("Logout");
-        TabPane listTabs = new TabPane();
-        TabPane sublistTab1 = new TabPane();
-        Tab tab1 = new Tab("Completed", new Label("Show all completed tasks"));
-        Tab tab2 = new Tab("Upcoming", new Label("Show all Upcoming tasks"));
-        Tab tab3 = new Tab("Overdue", new Label("Show all overdue tasks"));
-        Tab tab4 = new Tab("Today", sublistTab1);
-
-        Tab tab5 = new Tab("Subproject 1", new Label("Here you would put some tasks"));
-        Tab tab6 = new Tab("Subproject 2", new Label("Here are some more tasks"));
-
-        //CheckBox taskCheck1 = new CheckBox(task.getTitle());
-        //String labels = "";
-        //for (String label:task.getLabelList()){
-        //    labels.concat(label);
-        //}
-        //Label taskLabel1 = new Label(labels);
-        //for (String subtask:task.getSubtaskList(){
-        //    structure.add(new CheckBox(subtask.getTitle()));
-        //}
+        //main Pane
 
 
 
-        listTabs.getTabs().add(tab1);
-        listTabs.getTabs().add(tab2);
-        listTabs.getTabs().add(tab3);
-        listTabs.getTabs().add(tab4);
-        sublistTab1.getTabs().add(tab5);
-        sublistTab1.getTabs().add(tab6);
-
-        //for(String project:user.getLinkedList()){
-        //    listTabs.getTabs().add(new Tab(project.getTitle(), new TabPane().getTabs().add(new Tab(project.getSubproject().getTitle(), "tasks"))));
-        //}
 
 
         // log in pane
@@ -197,10 +104,10 @@ public class UI extends Application{
         registerPane.setVgap(5);
         registerPane.setHgap(5);
         registerPane.setAlignment(Pos.CENTER);
-        registerPane.add(newPassword, 0,1);
-        registerPane.add(newPasswordField, 1, 1);
         registerPane.add(newUsername, 0, 0);
         registerPane.add(username, 1,0);
+        registerPane.add(newPassword, 0,1);
+        registerPane.add(newPasswordField, 1, 1);
         registerPane.add(newFirstname,0,2);
         registerPane.add(firstName, 1,2);
         registerPane.add(newLastname,0,3);
@@ -210,22 +117,6 @@ public class UI extends Application{
         registerPane.add(newProfilePic,0,5);
         registerPane.add(pic,1,5);
         registerPane.add(reg,0,6);
-
-        // admin Pane
-        GridPane adminPane = new GridPane();
-        adminPane.setMinSize(400,500);
-        adminPane.setPadding(new Insets(10, 10, 10, 10));
-        adminPane.setVgap(5);
-        adminPane.setHgap(5);
-        adminPane.setAlignment(Pos.CENTER);
-        adminPane.add(userTable,0 ,0,4,10);
-        adminPane.add(searchButton,1,10);
-        adminPane.add(searchBar,2,10);
-        adminPane.add(logoutButton1,3,10);
-
-        //main Pane
-        HBox hbox = new HBox(mainSearch, search, addListButton,addSublistButton,addTaskButton,addSubtask,logoutButton2);
-        VBox vbox = new VBox(listTabs,hbox);
 
 
         // Scenes
@@ -237,8 +128,7 @@ public class UI extends Application{
         Scene splashScreen = new Scene(root);
         Scene loginScreen = new Scene(gridPane);
         Scene registerScreen = new Scene(registerPane);
-        Scene adminScreen = new Scene(adminPane);
-        Scene mainScreen = new Scene(vbox);
+
 
         //button actions
 
@@ -258,7 +148,7 @@ public class UI extends Application{
 
         reg.setOnAction(value -> { // this button is on the register screen
             try {
-                Manager.registerUser(username.getText(), newPasswordField.getText(), firstName.getText(), lastName.getText(), biography.getText());
+                registerUser(username.getText(), newPasswordField.getText(), firstName.getText(), lastName.getText(), biography.getText());
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -269,6 +159,68 @@ public class UI extends Application{
             biography.clear();
             registerStage.hide();
         });
+
+        //main page items
+        TextField mainSearch = new TextField();
+        mainSearch.setPromptText("Search here");
+        Button search = new Button("Search");
+        Button addListButton = new Button("Add List");
+        Button addSublistButton = new Button("Add Sublist");
+        Button addTaskButton = new Button("Add Button");
+        Button addSubtask = new Button("Add Subtask");
+        Button logoutButton2 = new Button("Logout");
+        TabPane listTabs = new TabPane();
+        //TabPane sublistTab1 = new TabPane();
+        //Tab tab1 = new Tab("Completed", new Label("Show all completed tasks"));
+        //Tab tab2 = new Tab("Upcoming", new Label("Show all Upcoming tasks"));
+        //Tab tab3 = new Tab("Overdue", new Label("Show all overdue tasks"));
+        //Tab tab4 = new Tab("Today", sublistTab1);
+
+        //Tab tab5 = new Tab("Subproject 1", new Label("Here you would put some tasks"));
+        //Tab tab6 = new Tab("Subproject 2", new Label("Here are some more tasks"));
+
+        //CheckBox taskCheck1 = new CheckBox(task.getTitle());
+        //String labels = "";
+        //for (String label:task.getLabelList()){
+        //    labels.concat(label);
+        //}
+        //Label taskLabel1 = new Label(labels);
+        //for (String subtask:task.getSubtaskList(){
+        //    structure.add(new CheckBox(subtask.getTitle()));
+        //}
+
+
+
+        //listTabs.getTabs().add(tab1);
+        //listTabs.getTabs().add(tab2);
+        //listTabs.getTabs().add(tab3);
+        //listTabs.getTabs().add(tab4);
+        //sublistTab1.getTabs().add(tab5);
+        //sublistTab1.getTabs().add(tab6);
+
+        TableView<User> userTable = new TableView<>();
+        Button searchButton = new Button("Search");
+        TextField searchBar = new TextField();
+        Button logoutButton1 = new Button("Logout");
+        AtomicReference<String> currentUser = new AtomicReference<>();
+
+        GridPane adminPane = new GridPane();
+        // admin Pane
+
+        adminPane.setMinSize(400,500);
+        adminPane.setPadding(new Insets(10, 10, 10, 10));
+        adminPane.setVgap(5);
+        adminPane.setHgap(5);
+        adminPane.setAlignment(Pos.CENTER);
+        adminPane.add(userTable,0 ,0,4,10);
+        adminPane.add(searchButton,1,10);
+        adminPane.add(searchBar,2,10);
+        adminPane.add(logoutButton1,3,10);
+        Scene adminScreen = new Scene(adminPane);
+
+        HBox hbox = new HBox(mainSearch, search, addListButton,addSublistButton,addTaskButton,addSubtask,logoutButton2);
+        VBox vbox = new VBox(listTabs,hbox);
+        Scene mainScreen = new Scene(vbox);
 
         login.setOnAction(value -> { // this button is on the login screen
             try {
@@ -282,23 +234,92 @@ public class UI extends Application{
                 } else if(loginUser(loginField1.getText(), loginField2.getText()) == 1) {
                     error1.setVisible(false);
                     // next screen
-                    //getUser(userArrayList, loginField1.getText());
-                    //ArrayList<Project> currentUserProjects = new ArrayList<>();
-                    //for (String project ) {
+                    LinkedList<String> currentUserProjects = projectListReader(loginField1.getText());
 
-                    //}
+                    for (String project: currentUserProjects) {
+                        tempUserProjects.add(projectFileReader(loginField1.getText(), project));
+                    }
+                    currentUser.set(loginField1.getText());
+                    for (Project tempUserProject : tempUserProjects) {
+                        TabPane projectTabPane = new TabPane();
+                        if (tempUserProject.getSubProjectTitles()!=null){
+                            for (int i = 0; i < tempUserProject.getSubProjectTitles().size(); i++) {
+                                Tab subProjectTab = new Tab(subProjectFileReader(currentUser.get(), tempUserProject.getSubProjectTitles().get(i)).getTitle(), new Label("tasks"));
+                                projectTabPane.getTabs().add(subProjectTab);
+                            }
+                        }
+                        listTabs.getTabs().add(new Tab(tempUserProject.getTitle(), projectTabPane));
+                    }
                     stage.hide();
                     mainStage.setScene(mainScreen);
                     mainStage.show();
-            } else {
+                } else {
                     error1.setVisible(true);
                 }
+                loginField1.clear();
+                loginField2.clear();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            loginField1.clear();
-                loginField2.clear();
         });
+
+        //admin page items
+
+
+        //for (User user:returnUsers()) {userList.add(user)
+
+        //}
+        ArrayList<String> userArrayList = returnUsers();
+
+        userTable.setEditable(true);
+        var nameCol = new TableColumn("Name");
+        nameCol.setMinWidth(120);
+        TableColumn passwordCol = new TableColumn("Password");
+        passwordCol.setMinWidth(100);
+        TableColumn emailCol = new TableColumn("Username");
+        emailCol.setMinWidth(200);
+
+        ArrayList<User> UserList = new ArrayList<>();
+
+        //for (String user: userArrayList) {
+            //retrieving the username and password from each string.
+        //    String savedUsername = user.substring(11, user.indexOf(" Password: "));
+
+        //    String savedPassword = user.substring(user.indexOf("Password: ") + 10, user.indexOf(" Name:"));
+
+        //    String savedName = user.substring(user.indexOf("Name: ") + 5, user.indexOf(" Biography:"));
+        //    StringTokenizer newSavedName = new StringTokenizer(savedName);
+        //    String savedFirstName = newSavedName.nextToken();
+        //    String savedLastName = newSavedName.nextToken();
+        //    UserList.add(new User(savedUsername, savedPassword, savedFirstName, savedLastName));
+        //}
+        final ObservableList<User> ObservableUserList = FXCollections.observableArrayList(UserList);
+
+        nameCol.setCellValueFactory(
+                new PropertyValueFactory<ArrayList<User>, String>("Name"));
+        passwordCol.setCellValueFactory(
+                new PropertyValueFactory<ArrayList<User>, String>("password"));
+        emailCol.setCellValueFactory(
+                new PropertyValueFactory<ArrayList<User>, String>("username"));
+
+
+        userTable.setItems(ObservableUserList);
+        userTable.getColumns().addAll(nameCol, emailCol, passwordCol);
+        passwordCol.setCellFactory(TextFieldTableCell.forTableColumn());
+        passwordCol.setOnEditCommit(
+                new EventHandler<TableColumn.CellEditEvent<UserTemplate, String>>() {
+                    @Override
+                    public void handle(TableColumn.CellEditEvent<UserTemplate, String> t) {
+                        ((User) t.getTableView().getItems().get(
+                                t.getTablePosition().getRow())
+                        ).setPassword(t.getNewValue());
+                    }
+                }
+        ); //changing the password in the field doesn't actually change the password
+
+        searchBar.setPromptText("Search here");
+
+
 
         logoutButton1.setOnAction(value -> { // This button is for the admin page
             //save information somehow

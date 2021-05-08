@@ -1,10 +1,14 @@
 package ToDoListManager;
-
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 import java.io.*;
+import java.lang.reflect.Type;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 
 public class Manager {
@@ -14,6 +18,7 @@ public class Manager {
     public Manager (){}
 
     public static ArrayList getUsers(){return users;}
+    public void setUsers(ArrayList<String> userSet){users = userSet;}
     public static Admin getAdmin(){return admin;}
 
     //method to register user.
@@ -24,7 +29,9 @@ public class Manager {
         //users = returnUsers();
         //code to add additional user
         User newUser = new User(username, password, firstName, lastName, biography);
-        users = returnUsers();
+
+        if (returnUsers() != null){users = returnUsers();
+        } else {users = new ArrayList<>();}
         users.add(newUser.toString());
 
         //code to write all users into a gson file.
@@ -37,6 +44,13 @@ public class Manager {
         } catch (IOException e) {
             System.err.println("Failed to create a directory!" + e.getMessage());
         }
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        FileWriter writer = new FileWriter("DataFiles/Users/"+username+"/ProjectNames");
+        Type type = new TypeToken<LinkedList<String>>(){}.getType();
+        LinkedList<String> list = new LinkedList<>();
+        writer.write(gson.toJson(list, type));
+        writer.close();
 
         // Creating the default projects each user has
         Project Upcoming = Project.newProject(newUser, "Upcoming", "Upcoming Tasks");
@@ -80,8 +94,6 @@ public class Manager {
     public static ArrayList returnUsers() throws IOException {
         return fileRead.userFileReader();
     }
-
-
 
     public static void main(String[] args) throws IOException {
 
